@@ -11,6 +11,10 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        
+   <%HttpSession sessionLogin = request.getSession();
+    String email = (String) session.getAttribute("PlayerEmail");
+    %>
     </head>
     
     <!--Color taken from ColorHexa-->
@@ -47,7 +51,11 @@
   </nav>
         
         
-        <h1>Welcome to make a payment!</h1>
+   <% if (email != null) { %>
+          <li>Hello, ${PlayerEmail}!</li>
+          
+          <% } %>
+          <h1>Hello :)</h1>
     </body>
 </html>
 

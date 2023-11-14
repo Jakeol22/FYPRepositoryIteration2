@@ -86,13 +86,15 @@ public class SignInServlet extends HttpServlet {
       DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
       Connection newcon=database.getConnection();  //gets connection from db
       
-      
+
       //Created this try catch with help from Youtube video: 
      //Code is from Sunita Rai (2022). See bottom of page for full reference
       try{
       
       String email = request.getParameter("email"); //get email parameter from text box in my jsp
       String pword = request.getParameter("password"); //get password parameter from text box in my jsp
+      
+      HttpSession session = request.getSession();
       
       PreparedStatement PPS;
       PPS=newcon.prepareStatement("select PlayerEmail from player where PlayerEmail=? and PlayerPassword=?"); //selects player email column from player table where the email and password must match
@@ -106,9 +108,15 @@ public class SignInServlet extends HttpServlet {
         
       
       if(rst.next())
-      {  
+      { 
+      
+                
+         session.setAttribute("PlayerEmail", rst.getString("PlayerEmail"));
+      
           RequestDispatcher rqd=request.getRequestDispatcher("Payment.jsp");
           rqd.forward(request,response); //if the result set matches my parameters, then the user can go to the payment.jsp page
+
+          
       }
       else
       {
