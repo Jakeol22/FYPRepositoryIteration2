@@ -58,6 +58,28 @@
           
           <% } %>
           
+          
+                              <div class="d-flex justify-content-center align-items-center" " >
+                        <div class="card h-100" style=" background-color: #E6E6FA; border-color: black; border-width: 5px">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="Images/manager.png" style="width: 250px; height: 250px;" alt="Hoovers????" ><img/>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                   
+                                    <h5 class="fw-bolder"> Pay your manager! </h5>
+                                    <br>
+                                  
+                                   
+                                   
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="Payment.jsp">Make your payment!</a></div>
+                            </div>
+                        </div>
+                    </div>
         
     </body>
 </html>

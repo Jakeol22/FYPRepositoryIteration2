@@ -63,7 +63,7 @@
 <div class="container">]
         <div class=" text-center mt-5 ">
 
-            <h1 >Bootstrap Contact Form</h1>
+            <h1 >Make a payment to your manager</h1>
                 
             
         </div>
