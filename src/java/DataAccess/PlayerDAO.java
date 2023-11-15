@@ -34,7 +34,7 @@ public class PlayerDAO {
       try{
           PreparedStatement smnt;
           
-          smnt=newconnection.prepareStatement("Select ManagerID from player");
+          smnt=newconnection.prepareStatement("Select ManagerID from player where PlayerID=2");
           
           
           ResultSet rst1 =smnt.executeQuery();
