@@ -6,30 +6,28 @@
 package Servlets;
 
 import Java.DatabaseConnection;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.DriverManager;
-import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author My PC
  */
-@WebServlet(name = "SignInServlet", urlPatterns = {"/SignInServlet"})
-public class SignInServlet extends HttpServlet {
+@WebServlet(name = "PaymentServlet", urlPatterns = {"/PaymentServlet"})
+public class PaymentServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,10 +46,10 @@ public class SignInServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SignInServlet</title>");            
+            out.println("<title>Servlet PaymentServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SignInServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet PaymentServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -83,57 +81,30 @@ public class SignInServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
-      Connection newcon=database.getConnection();  //gets connection from db
-      
-
-      //Created this try catch with help from Youtube video: 
-     //Code is from Sunita Rai (2022). See bottom of page for full reference
-      try{
-      
-      String email = request.getParameter("email"); //get email parameter from text box in my jsp
-      String pword = request.getParameter("password"); //get password parameter from text box in my jsp
-      
-      HttpSession session = request.getSession();
-      
-      PreparedStatement PPS;
-      PPS=newcon.prepareStatement("select PlayerEmail from player where PlayerEmail=? and PlayerPassword=?"); //selects player email column from player table where the email and password must match
-      
-
-      
-      PPS.setString(1, email);//value for PlayerEmail=?
-      PPS.setString(2, pword);//value for PlayerPassword=?
-      
-      ResultSet rst=PPS.executeQuery();//carry out/execute the statement i created
+        processRequest(request, response);
         
+  /*    DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
+      Connection newcon=database.getConnection(); //gets connection from db
       
-      if(rst.next())
-      { 
-      
-                
-         session.setAttribute("PlayerEmail", rst.getString("PlayerEmail"));
-      
-         RequestDispatcher rqd=request.getRequestDispatcher("PlayerHome.jsp");
-         rqd.forward(request,response); //if the result set matches my parameters, then the user can go to the payment.jsp page
-
+      try{
+          PreparedStatement smnt;
           
-      }
-      else
-      {
+          smnt=newcon.prepareStatement("Select ManagerID from player");
           
-         RequestDispatcher rqd1=request.getRequestDispatcher("SignIn.jsp");
-         rqd1.forward(request,response);//if the result set doesn't match my parameters, then the user goes back to the Sign In page
-
-      }
+          
+          ResultSet rst1 =smnt.executeQuery();
+          
+          List<String>ManagerIDlist = new ArrayList<>();
+          
+          while (rst1.next()){
+              ManagerIDlist.add(rst1.getString("ManagerID"));
+              
+              request.setAttribute("ManagerIDlist", ManagerIDlist);
+          }
       }catch (SQLException ex){
-            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      
-       
+          Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+      }*/
     }
-    
-    
-    
     
     
 
@@ -148,6 +119,3 @@ public class SignInServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-
-
-//Sunita Rai (2022)Login Page using JSP + Servlet + JDBC + MySQL (2022)- Step by Step Tutorial. Available at: https://www.youtube.com/watch?v=36cQjEEvK30 (Accessed: 05 November 2023).
