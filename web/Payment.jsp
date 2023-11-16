@@ -89,17 +89,18 @@
                             
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="form_lastname">Lastname *</label>
-                            <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
-                                                            </div>
-                    </div>
+         <div class="form-group">
+            <label for="form_need">Pay your manager now?</label>
+            <select id="form_need" name="Status" class="form-control" required="required" data-error="Please specify your need.">
+              <option value="" selected disabled>Pay your manager now!</option>
+              <option >Pay your manager now!</option>
+            </select>
+        </div>
                 </div>
                 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label for="form_need">Please specify your need *</label>
+            <label for="form_need">Your Managers ID is: </label>
             <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
       <c:forEach var="ManagerID" items="${ManagerIDlist}">
         <option value="${ManagerID}">${ManagerID}</option>
@@ -107,13 +108,28 @@
             </select>
         </div>
     </div>
+     
+                         
+    <div class="col-md-6">
+                         <div class="form-group">
+            <label for="form_need">Amount due:</label>
+            <select id="form_need" name="Amount due" class="form-control" required="required" data-error="Please specify your need.">
+              <option value="" selected disabled>€5</option>
+              <option> €5 </option>
+            </select>
+        </div>
+        </div>
+         </div>
+                    
 </div>
+                
+                
 
 
                     <div class="col-md-12">
                         
                         <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
-                            " value="Send Message" >
+                            " value="Pay now!" >
                     
                 </div>
           
