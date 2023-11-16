@@ -101,9 +101,9 @@
         <div class="form-group">
             <label for="form_need">Please specify your need *</label>
             <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
-                <c:forEach var="ManagerID" items="${ManagerIDlist}">
-                    <option value="${ManagerID}">${ManagerID}</option>
-                </c:forEach>
+      <c:forEach var="ManagerID" items="${ManagerIDlist}">
+        <option value="${ManagerID}">${ManagerID}</option>
+    </c:forEach>
             </select>
         </div>
     </div>

@@ -5,23 +5,28 @@
  */
 package Servlets;
 
+import Java.DatabaseConnection;
 import Service.PlayerService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author My PC
  */
 @WebServlet(name = "PlayerServlet", urlPatterns = {"/PlayerServlet"})
-public class PlayerServlet extends HttpServlet {
+public class PlayerServlet extends HttpServlet  {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,18 +39,30 @@ public class PlayerServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PlayerServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PlayerServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+String newaction = request.getParameter("newaction");
+        
+        ServletContext context = getServletContext();
+        PlayerService plrsrvc = new PlayerService();
+        String plr = null;
+        if (newaction == null)
+            request.getRequestDispatcher("/SignIn").forward(request, response);
+
+        if (newaction.equals("GetManagerIDs")) {
+           
+            HttpSession session = request.getSession();
+            String playerEmail = (String) session.getAttribute("PlayerEmail");
+            
+           try{
+            ArrayList<Long> ManagerIDlist = plrsrvc.GetManagerID(playerEmail); 
+            
+                
+                request.setAttribute("ManagerIDlist", ManagerIDlist);
+                
+                context.setAttribute("ManagerIDlist", ManagerIDlist);
+                request.getRequestDispatcher("/Payment.jsp").forward(request, response);
+           }catch (SQLException ex) {
+               Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+           }
         }
     }
 
@@ -63,23 +80,7 @@ public class PlayerServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        String newaction = request.getParameter("newaction");
-        
-        ServletContext context = getServletContext();
-        PlayerService plrsrvc = new PlayerService();
-        String plr = null;
-        if (newaction == null)
-            request.getRequestDispatcher("/SignIn").forward(request, response);
-
-        if (newaction.equals("GetManagerIDs")) {
-           
-            ArrayList<Long> ManagerIDlist = plrsrvc.GetManagerID();
-            
-                
-                request.setAttribute("ManagerIDlist", ManagerIDlist);
-                context.setAttribute("ManagerIDlist", ManagerIDlist);
-                request.getRequestDispatcher("Payment.jsp").forward(request, response);
-            }
+ 
     }
 
     /**

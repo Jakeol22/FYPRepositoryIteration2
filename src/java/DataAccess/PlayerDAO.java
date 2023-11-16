@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  * @author My PC
  */
 public class PlayerDAO {
-    public  ArrayList<Long> GetManagerID(){
+    public  ArrayList<Long> GetManagerID(String playerEmail){
       DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
       Connection newconnection=database.getConnection(); //gets connection from db
       
@@ -34,8 +34,9 @@ public class PlayerDAO {
       try{
           PreparedStatement smnt;
           
-          smnt=newconnection.prepareStatement("Select ManagerID from player where PlayerID=2");
+          smnt=newconnection.prepareStatement("Select ManagerID from player where PlayerEmail=?");
           
+          smnt.setString(1, playerEmail);
           
           ResultSet rst1 =smnt.executeQuery();
           

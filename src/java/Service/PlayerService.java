@@ -8,17 +8,17 @@ package Service;
 import DataAccess.PlayerDAO;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLException;
 
 /**
  *
  * @author My PC
  */
 public class PlayerService {
-    public  ArrayList<Long> GetManagerID(){
+    public  ArrayList<Long> GetManagerID(String playerEmail)throws SQLException {
+        
         
         PlayerDAO plr = new PlayerDAO();
-        
-        ArrayList <Long> ManagerIdList = plr.GetManagerID();
-        return ManagerIdList;
+        return plr.GetManagerID(playerEmail);
     }
 }
