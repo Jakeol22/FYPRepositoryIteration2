@@ -15,7 +15,7 @@ public class PaymentToManagerModel {
     
     
     
-    private long PaymentToManagerID;
+    
     private long PlayerID;
     private long ManagerID;
     private String PaymentToManagerStatus;
@@ -25,16 +25,21 @@ public class PaymentToManagerModel {
     /**
      * @return the PaymentToManagerID
      */
-    public long getPaymentToManagerID() {
-        return PaymentToManagerID;
+    
+        public PaymentToManagerModel(long PlayerID, long ManagerID, String PaymentToManagerStatus, long PaymentToManagerAmount, LocalDate DateOfPaymentToManager) {
+        
+        this.PlayerID = PlayerID;
+        this.ManagerID = ManagerID;
+        this.PaymentToManagerStatus = PaymentToManagerStatus;
+        this.PaymentToManagerAmount = PaymentToManagerAmount;
+        this.DateOfPaymentToManager = DateOfPaymentToManager;
     }
+
 
     /**
      * @param PaymentToManagerID the PaymentToManagerID to set
      */
-    public void setPaymentToManagerID(long PaymentToManagerID) {
-        this.PaymentToManagerID = PaymentToManagerID;
-    }
+
 
     /**
      * @return the PlayerID
@@ -106,14 +111,7 @@ public class PaymentToManagerModel {
         this.DateOfPaymentToManager = DateOfPaymentToManager;
     }
 
-    public PaymentToManagerModel(long PaymentToManagerID, long PlayerID, long ManagerID, String PaymentToManagerStatus, long PaymentToManagerAmount, LocalDate DateOfPaymentToManager) {
-        this.PaymentToManagerID = PaymentToManagerID;
-        this.PlayerID = PlayerID;
-        this.ManagerID = ManagerID;
-        this.PaymentToManagerStatus = PaymentToManagerStatus;
-        this.PaymentToManagerAmount = PaymentToManagerAmount;
-        this.DateOfPaymentToManager = DateOfPaymentToManager;
-    }
+
     
     
 }

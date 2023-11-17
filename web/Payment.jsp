@@ -60,7 +60,7 @@
          
           
           
-<div class="container">]
+<div class="container">
         <div class=" text-center mt-5 ">
 
             <h1 >Make a payment to your manager</h1>
@@ -70,25 +70,20 @@
 
     
     <div class="row ">
+        
       <div class="col-lg-7 mx-auto">
         <div class="card mt-2 mx-auto p-4 bg-light">
             <div class="card-body bg-light">
        
             <div class = "container">
-                             <form id="contact-form" role="form">
+                             <form action="PlayerServlet" method="post"id="contact-form" role="form">
 
-                                 <input type ="hidden" id="PlayerID" name="playerid">
+                              <input type="hidden" name="newaction" value="GetManagerIDs"> 
 
             <div class="controls">
 
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="form_name">Firstname *</label>
-                            <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
-                            
-                        </div>
-                    </div>
+
          <div class="form-group">
             <label for="form_need">Pay your manager now?</label>
             <select id="form_need" name="Status" class="form-control" required="required" data-error="Please specify your need.">
@@ -100,6 +95,18 @@
                 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
+             
+                          
+            <label for="form_need">Your Player ID is: </label>
+            <select id="form_need" name="playerid" class="form-control" required="required" data-error="Please specify your need.">
+      <c:forEach var="PlayerID" items="${PlayerIDlist}">
+        <option value="${PlayerID}">${PlayerID}</option>
+    </c:forEach>
+            </select>
+        </div>
+    </div>
+                    
+                    <div>
             <label for="form_need">Your Managers ID is: </label>
             <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
       <c:forEach var="ManagerID" items="${ManagerIDlist}">
@@ -108,15 +115,7 @@
             </select>
         </div>
         
-                <div class="form-group">
-            <label for="form_need">Your Managers ID is: </label>
-            <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
-      <c:forEach var="PlayerID" items="${PlayerIDlist}">
-        <option value="${PlayerID}">${PlayerID}</option>
-    </c:forEach>
-            </select>
-        </div>
-    </div>
+
      
                          
     <div class="col-md-6">
@@ -124,7 +123,7 @@
             <label for="form_need">Amount due:</label>
             <select id="form_need" name="AmountDue" class="form-control" required="required" data-error="Please specify your need.">
               <option value="" selected disabled>€5</option>
-              <option> €5 </option>
+              <option> 5 </option>
             </select>
         </div>
         </div>

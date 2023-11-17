@@ -6,6 +6,8 @@
 package Servlets;
 
 import Java.DatabaseConnection;
+import Java.PaymentToManagerModel;
+import Service.PaymentToManagerService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -69,6 +71,8 @@ public class PaymentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+
     }
 
     /**
@@ -83,14 +87,27 @@ public class PaymentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        
-        
-    long playerid = Long.parseLong(request.getParameter("playerid"));
+       long playerid = Long.parseLong(request.getParameter("playerid"));
     long managerid = Long.parseLong(request.getParameter("managerid"));
     String Status = request.getParameter("Status");
     long AmountDue =Long.parseLong(request.getParameter("AmountDue"));
     LocalDate currentDate = LocalDate.now();
+    
+  
+    PaymentToManagerModel newpmtmm = new PaymentToManagerModel(playerid, managerid, Status, AmountDue, currentDate);
+    
+    newpmtmm.setPlayerID(playerid);
+    newpmtmm.setManagerID(managerid);
+    newpmtmm.setPaymentToManagerStatus(Status);
+    newpmtmm.setPaymentToManagerAmount(AmountDue);
+    newpmtmm.setDateOfPaymentToManager(currentDate);
+   
+    PaymentToManagerService ptms = new PaymentToManagerService();
+    ptms.CreateTransaction(newpmtmm);
+        
+
+    
+    
     }
     
     

@@ -6,10 +6,13 @@
 package Servlets;
 
 import Java.DatabaseConnection;
+import Java.PaymentToManagerModel;
+import Service.PaymentToManagerService;
 import Service.PlayerService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,10 +47,12 @@ String newaction = request.getParameter("newaction");
         ServletContext context = getServletContext();
         PlayerService plrsrvc = new PlayerService();
         String plr = null;
-        if (newaction == null)
-            request.getRequestDispatcher("/SignIn").forward(request, response);
-
-        if (newaction.equals("GetManagerIDs")) {
+        if (newaction == null) 
+            request.getRequestDispatcher("/SignIn.jsp").forward(request, response);
+       
+       
+        
+if (newaction != null && newaction.equals("GetManagerIDs")) {
            
             HttpSession session = request.getSession();
             String playerEmail = (String) session.getAttribute("PlayerEmail");
@@ -104,6 +109,10 @@ String newaction = request.getParameter("newaction");
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+                
+ 
+                    
+    
     }
 
     /**
