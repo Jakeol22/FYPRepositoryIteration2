@@ -52,4 +52,35 @@ public class PlayerDAO {
       }
       return ManagerIDlist;
     }
+    
+    public ArrayList<Long>GetPlayerID(String playerEmail){
+        
+      DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
+      Connection newconnection=database.getConnection(); //gets connection from db
+        
+        long PlayerID=0;
+        
+        ArrayList<Long>PlayerIDList = new ArrayList<>();
+        
+              try{
+          PreparedStatement Smnt1;
+          
+          Smnt1=newconnection.prepareStatement("Select PlayerID from player where PlayerEmail=?");
+          
+          Smnt1.setString(1, playerEmail);
+          
+          ResultSet Rst2 =Smnt1.executeQuery();
+          
+        
+          
+          while (Rst2.next()){
+              PlayerIDList.add(Rst2.getLong("PlayerID"));
+              
+   
+          }
+      }catch (SQLException ex){
+          Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      return PlayerIDList;
+    }
 }

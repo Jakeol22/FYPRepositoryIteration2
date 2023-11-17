@@ -77,7 +77,7 @@
             <div class = "container">
                              <form id="contact-form" role="form">
 
-            
+                                 <input type ="hidden" id="PlayerID" name="playerid">
 
             <div class="controls">
 
@@ -101,9 +101,18 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="form_need">Your Managers ID is: </label>
-            <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+            <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
       <c:forEach var="ManagerID" items="${ManagerIDlist}">
         <option value="${ManagerID}">${ManagerID}</option>
+    </c:forEach>
+            </select>
+        </div>
+        
+                <div class="form-group">
+            <label for="form_need">Your Managers ID is: </label>
+            <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
+      <c:forEach var="PlayerID" items="${PlayerIDlist}">
+        <option value="${PlayerID}">${PlayerID}</option>
     </c:forEach>
             </select>
         </div>
@@ -113,7 +122,7 @@
     <div class="col-md-6">
                          <div class="form-group">
             <label for="form_need">Amount due:</label>
-            <select id="form_need" name="Amount due" class="form-control" required="required" data-error="Please specify your need.">
+            <select id="form_need" name="AmountDue" class="form-control" required="required" data-error="Please specify your need.">
               <option value="" selected disabled>€5</option>
               <option> €5 </option>
             </select>

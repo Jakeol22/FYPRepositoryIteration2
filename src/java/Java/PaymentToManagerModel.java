@@ -13,6 +13,8 @@ import java.time.LocalDate;
  */
 public class PaymentToManagerModel {
     
+    
+    
     private long PaymentToManagerID;
     private long PlayerID;
     private long ManagerID;

@@ -51,14 +51,23 @@ String newaction = request.getParameter("newaction");
            
             HttpSession session = request.getSession();
             String playerEmail = (String) session.getAttribute("PlayerEmail");
+           
             
            try{
+            
             ArrayList<Long> ManagerIDlist = plrsrvc.GetManagerID(playerEmail); 
             
-                
                 request.setAttribute("ManagerIDlist", ManagerIDlist);
-                
                 context.setAttribute("ManagerIDlist", ManagerIDlist);
+                
+                
+                
+               ArrayList<Long> PlayerIDlist = plrsrvc.GetPlayerID(playerEmail);  
+               
+               request.setAttribute("PlayerIDlist", PlayerIDlist);
+               context.setAttribute("PlayerIDlist", PlayerIDlist);
+               
+               
                 request.getRequestDispatcher("/Payment.jsp").forward(request, response);
            }catch (SQLException ex) {
                Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);

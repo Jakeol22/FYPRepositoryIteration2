@@ -21,4 +21,13 @@ public class PlayerService {
         PlayerDAO plr = new PlayerDAO();
         return plr.GetManagerID(playerEmail);
     }
+    
+    
+    
+    public  ArrayList<Long> GetPlayerID(String playerEmail)throws SQLException {
+        
+        
+        PlayerDAO plr1 = new PlayerDAO();
+        return plr1.GetPlayerID(playerEmail);
+    }
 }

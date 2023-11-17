@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -83,27 +84,13 @@ public class PaymentServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-  /*    DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
-      Connection newcon=database.getConnection(); //gets connection from db
-      
-      try{
-          PreparedStatement smnt;
-          
-          smnt=newcon.prepareStatement("Select ManagerID from player");
-          
-          
-          ResultSet rst1 =smnt.executeQuery();
-          
-          List<String>ManagerIDlist = new ArrayList<>();
-          
-          while (rst1.next()){
-              ManagerIDlist.add(rst1.getString("ManagerID"));
-              
-              request.setAttribute("ManagerIDlist", ManagerIDlist);
-          }
-      }catch (SQLException ex){
-          Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
-      }*/
+        
+        
+    long playerid = Long.parseLong(request.getParameter("playerid"));
+    long managerid = Long.parseLong(request.getParameter("managerid"));
+    String Status = request.getParameter("Status");
+    long AmountDue =Long.parseLong(request.getParameter("AmountDue"));
+    LocalDate currentDate = LocalDate.now();
     }
     
     
