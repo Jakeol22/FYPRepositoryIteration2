@@ -110,7 +110,27 @@ if (newaction != null && newaction.equals("GetManagerIDs")) {
             throws ServletException, IOException {
         processRequest(request, response);
                 
- 
+        long playerid = Long.parseLong(request.getParameter("playerid"));
+    long managerid = Long.parseLong(request.getParameter("managerid"));
+    String Status = request.getParameter("Status");
+    long AmountDue =Long.parseLong(request.getParameter("AmountDue"));
+    LocalDate currentDate = LocalDate.now();
+    
+  
+    PaymentToManagerModel newpmtmm = new PaymentToManagerModel(playerid, managerid, Status, AmountDue, currentDate);
+    
+    newpmtmm.setPlayerID(playerid);
+    newpmtmm.setManagerID(managerid);
+    newpmtmm.setPaymentToManagerStatus(Status);
+    newpmtmm.setPaymentToManagerAmount(AmountDue);
+    newpmtmm.setDateOfPaymentToManager(currentDate);
+   
+    PaymentToManagerService ptms = new PaymentToManagerService();
+    ptms.CreateTransaction(newpmtmm);
+        
+
+    
+    
                     
     
     }
