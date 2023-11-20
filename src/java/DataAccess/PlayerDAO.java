@@ -83,4 +83,41 @@ public class PlayerDAO {
       }
       return PlayerIDList;
     }
+    
+    public ArrayList<String>GetManagerName(String playerEmail){
+
+      DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
+      Connection newconnection=database.getConnection(); //gets connection from db
+        
+        
+        String ManagerFname = "";
+        
+        ArrayList<String>ManagerNameList = new ArrayList<>();
+        
+        try{
+          PreparedStatement Smnt3;
+          
+          Smnt3=newconnection.prepareStatement("SELECT mgr.ManagerFname, mgr.ManagerLname FROM manager mgr JOIN player plr ON mgr.ManagerID = plr.ManagerID where plr.PlayerEmail=?");
+          
+          Smnt3.setString(1, playerEmail);
+          
+          ResultSet Rst3 =Smnt3.executeQuery();
+          
+        
+          
+          while (Rst3.next()){
+              ManagerNameList.add(Rst3.getString("ManagerFname"));
+              ManagerNameList.add(Rst3.getString("ManagerLname"));
+              
+   
+          }
+      }catch (SQLException ex){
+          Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      return ManagerNameList;
+    }
+        
 }
+
+
+

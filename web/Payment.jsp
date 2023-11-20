@@ -64,6 +64,18 @@
         <div class=" text-center mt-5 ">
 
             <h1 >Make a payment to your manager</h1>
+            
+            
+           
+            <h3> Your Manager is:
+                      
+        
+                  ${ManagerNameList}        
+   
+                
+            
+            </h3> 
+            
                 
             
         </div>

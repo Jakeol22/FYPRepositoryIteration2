@@ -30,4 +30,11 @@ public class PlayerService {
         PlayerDAO plr1 = new PlayerDAO();
         return plr1.GetPlayerID(playerEmail);
     }
+    
+        public  ArrayList<String> GetManagerName(String playerEmail)throws SQLException {
+        
+        
+        PlayerDAO plr2 = new PlayerDAO();
+        return plr2.GetManagerName(playerEmail);
+    }
 }

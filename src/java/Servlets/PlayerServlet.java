@@ -72,6 +72,11 @@ if (newaction != null && newaction.equals("GetManagerIDs")) {
                request.setAttribute("PlayerIDlist", PlayerIDlist);
                context.setAttribute("PlayerIDlist", PlayerIDlist);
                
+              ArrayList<String> ManagerNameList = plrsrvc.GetManagerName(playerEmail);  
+               
+               request.setAttribute("ManagerNameList", ManagerNameList);
+               context.setAttribute("ManagerNameList", ManagerNameList);
+               
                
                 request.getRequestDispatcher("/Payment.jsp").forward(request, response);
            }catch (SQLException ex) {
