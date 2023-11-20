@@ -125,9 +125,9 @@
                          
     <div class="col-md-6">
                          <div class="form-group">
-            <label for="form_need">Amount due:</label>
+            <label for="form_need">Amount due to Manager (€):</label>
             <select id="form_need" name="AmountDue" class="form-control" required="required" data-error="Please specify your need.">
-              <option value="" selected disabled>€5</option>
+              
               <option> 5 </option>
             </select>
         </div>
@@ -135,13 +135,7 @@
                     
                                  
  
-         <div class="form-group">
-            <label for="form_need">Pay your manager now?</label>
-            <select id="form_need" name="Status" class="form-control" required="required" data-error="Please specify your need.">
-              <option value="" selected disabled>Pay your manager now!</option>
-              <option >Pay your manager now!</option>
-            </select>
-        </div>
+
                 </div>
          </div>
                     

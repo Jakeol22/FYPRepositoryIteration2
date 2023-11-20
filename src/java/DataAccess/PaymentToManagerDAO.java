@@ -33,7 +33,7 @@ public class PaymentToManagerDAO {
           PPSTN1 = newconnection.createStatement();
           
           String newsql = String.format("Insert into PaymentToManager(PlayerID, ManagerID,PaymentToManagerStatus, PaymentToManagerAmount, DateOfPaymentToManager)" + 
-                  "VALUES('%s','%s','%s','%s','%s')", newPaymentToManager.getPlayerID(), newPaymentToManager.getManagerID(), newPaymentToManager.getPaymentToManagerStatus(), newPaymentToManager.getPaymentToManagerAmount(), newPaymentToManager.getDateOfPaymentToManager());
+                  "VALUES('%s','%s','Succesful','%s','%s')", newPaymentToManager.getPlayerID(), newPaymentToManager.getManagerID(), newPaymentToManager.getPaymentToManagerAmount(), newPaymentToManager.getDateOfPaymentToManager());
           
           PPSTN1.executeUpdate(newsql);
       }catch (SQLException ex){

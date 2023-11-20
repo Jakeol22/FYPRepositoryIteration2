@@ -126,7 +126,7 @@ if (newaction != null && newaction.equals("GetManagerIDs")) {
     
     newpmtmm.setPlayerID(playerid);
     newpmtmm.setManagerID(managerid);
-    newpmtmm.setPaymentToManagerStatus(Status);
+    newpmtmm.setPaymentToManagerStatus("Succesful");
     newpmtmm.setPaymentToManagerAmount(AmountDue);
     newpmtmm.setDateOfPaymentToManager(currentDate);
    
