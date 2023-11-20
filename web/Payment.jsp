@@ -81,14 +81,14 @@
         </div>
 
     
-    <div class="row ">
+    <div class="row " >
         
       <div class="col-lg-7 mx-auto">
-        <div class="card mt-2 mx-auto p-4 bg-light">
-            <div class="card-body bg-light">
+        <div class="card mt-2 mx-auto p-4 " style="background-color: #E6E6FA; border-color: black; border-width: 5px">
+            <div class="card-body">
        
             <div class = "container">
-                             <form action="PlayerServlet" method="post"id="contact-form" role="form">
+                             <form action="PlayerServlet" method="post"id="contact-form" role="form" >
 
                               <input type="hidden" name="newaction" value="GetManagerIDs"> 
 
@@ -109,7 +109,8 @@
         </div>
     </div>
                     
-                    <div>
+                    <div class="col-md-6">
+        <div class="form-group">
             <label for="form_need">Your Managers ID is: </label>
             <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
       <c:forEach var="ManagerID" items="${ManagerIDlist}">
@@ -117,7 +118,8 @@
     </c:forEach>
             </select>
         </div>
-        
+                </div>
+
 
      
                          
