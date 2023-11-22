@@ -27,17 +27,21 @@ public class PaymentToManagerDAO {
       DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
       Connection newconnection=database.getConnection(); //gets connection from db
         
+      //The following code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+      
       Statement PPSTN1 = null;
       
       try{
           PPSTN1 = newconnection.createStatement();
           
           String newsql = String.format("Insert into PaymentToManager(PlayerID, ManagerID,PaymentToManagerStatus, PaymentToManagerAmount, DateOfPaymentToManager)" + 
-                  "VALUES('%s','%s','Succesful','%s','%s')", newPaymentToManager.getPlayerID(), newPaymentToManager.getManagerID(), newPaymentToManager.getPaymentToManagerAmount(), newPaymentToManager.getDateOfPaymentToManager());
+                  "VALUES('%s','%s','Succesful','%s','%s')", newPaymentToManager.getPlayerID(), newPaymentToManager.getManagerID(), newPaymentToManager.getPaymentToManagerAmount(), newPaymentToManager.getDateOfPaymentToManager()); //insert statement and use my getters from paymenttomanager model
           
-          PPSTN1.executeUpdate(newsql);
+          PPSTN1.executeUpdate(newsql); //execute my statement
       }catch (SQLException ex){
           Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
       }
 }
 }
+
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)

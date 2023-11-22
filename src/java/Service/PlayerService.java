@@ -15,23 +15,26 @@ import java.sql.SQLException;
  * @author My PC
  */
 public class PlayerService {
-    public  ArrayList<Long> GetManagerID(String playerEmail)throws SQLException {
+    
+    //This service code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+
+    public  ArrayList<Long> GetManagerID(String playerEmail)  { //Calls on the GetManagerID method from my dao
         
         
-        PlayerDAO plr = new PlayerDAO();
+        PlayerDAO plr = new PlayerDAO(); //creates a new instance of 
         return plr.GetManagerID(playerEmail);
     }
     
     
     
-    public  ArrayList<Long> GetPlayerID(String playerEmail)throws SQLException {
+    public  ArrayList<Long> GetPlayerID(String playerEmail) {
         
         
         PlayerDAO plr1 = new PlayerDAO();
         return plr1.GetPlayerID(playerEmail);
     }
     
-        public  ArrayList<String> GetManagerName(String playerEmail)throws SQLException {
+        public  ArrayList<String> GetManagerName(String playerEmail){
         
         
         PlayerDAO plr2 = new PlayerDAO();

@@ -14,6 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         
+         <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
    <%HttpSession sessionLogin = request.getSession();
     String email = (String) session.getAttribute("PlayerEmail");
     %>
@@ -53,6 +54,8 @@
   </nav>
         
         
+         <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
+        
    <% if (email != null) { %>
           <li>Hello, ${PlayerEmail}!</li>
           
@@ -81,6 +84,8 @@
         </div>
 
     
+                  
+                  <!--Below form/html is taken from BBbootstrap (2019)-->
     <div class="row " >
         
       <div class="col-lg-7 mx-auto">
@@ -88,9 +93,9 @@
             <div class="card-body">
        
             <div class = "container">
-                             <form action="PlayerServlet" method="post"id="contact-form" role="form" >
+                             <form action="PlayerServlet" method="post"id="contact-form" role="form" > <!--Calls on playerservlet-->
 
-                              <input type="hidden" name="newaction" value="GetManagerIDs"> 
+                              
 
             <div class="controls">
 
@@ -101,9 +106,11 @@
              
                           
             <label for="form_need">Your Player ID is: </label>
+            
+            <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
             <select id="form_need" name="playerid" class="form-control" required="required" data-error="Please specify your need.">
       <c:forEach var="PlayerID" items="${PlayerIDlist}">
-        <option value="${PlayerID}">${PlayerID}</option>
+        <option value="${PlayerID}">${PlayerID}</option> <!--Gets Player ID from servlet-->
     </c:forEach>
             </select>
         </div>
@@ -111,10 +118,11 @@
                     
                     <div class="col-md-6">
         <div class="form-group">
+             <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
             <label for="form_need">Your Managers ID is: </label>
             <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
       <c:forEach var="ManagerID" items="${ManagerIDlist}">
-        <option value="${ManagerID}">${ManagerID}</option>
+        <option value="${ManagerID}">${ManagerID}</option> <!--Recognises Player ID from servlet-->
     </c:forEach>
             </select>
         </div>
@@ -128,7 +136,7 @@
             <label for="form_need">Amount due to Manager (€):</label>
             <select id="form_need" name="AmountDue" class="form-control" required="required" data-error="Please specify your need.">
               
-              <option> 5 </option>
+              <option> 5 </option> <!--Amount to be paif-->
             </select>
         </div>
         </div>
@@ -146,6 +154,8 @@
 
                     <div class="col-md-12">
                         
+                        <input type="hidden" name="newaction" value="MakePayment">
+
                         <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
                             " value="Pay now!" >
                     
@@ -172,6 +182,9 @@
     </body>
 </html>
 
-
-<!--https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon-->
-<!--https://getbootstrap.com/docs/5.3/examples/navbars/-->
+<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)-->
+<!--BBbootstrap (2019) Bootstrap 4 Simple Contact Form. Available at https://bbbootstrap.com/snippets/simple-contact-form-74408136 -->
+<!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
+<!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
+<!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
+<!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->

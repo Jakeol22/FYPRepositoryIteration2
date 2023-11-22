@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         
+        <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
    <%HttpSession sessionLogin = request.getSession();
     String email = (String) session.getAttribute("PlayerEmail");
     %>
@@ -52,6 +53,8 @@
     </div>
   </nav>
         
+        
+        <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
                 
    <% if (email != null) { %>
           <li>Hello, ${PlayerEmail}!</li>
@@ -59,11 +62,14 @@
           <% } %>
           
           
+          
+          <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
                               <div class="d-flex justify-content-center align-items-center" " >
                         <div class="card h-100" style=" background-color: #E6E6FA; border-color: black; border-width: 5px">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="Images/manager.png" style="width: 250px; height: 250px;" alt="Hoovers????" ><img/>
-                            <!-- Product details-->
+                            
+                            <!--<a href="https://www.flaticon.com/free-icons/sports-and-competition" title="sports and competition icons">Sports and competition icons created by Flat Icons - Flaticon</a>-->
+                            <img class="card-img-top" src="Images/manager.png" style="width: 250px; height: 250px;" alt="????" ><img/>
+                           
                             <div class="card-body p-4">
                                 <div class="text-center">
                                    
@@ -76,10 +82,20 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="http://localhost:8080/FYP-Iteration2.0/PlayerServlet?newaction=GetManagerIDs">Make your payment!</a></div>
+                                
+                                <!--//This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="http://localhost:8080/FYP-Iteration2.0/PlayerServlet?newaction=GetManagerIDs">Make your payment!</a></div> <!--Takes you through the PlayerServlet, using newaction-->
                             </div>
                         </div>
                     </div>
         
     </body>
 </html>
+
+<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)-->
+<!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
+<!--Bootstrap (2023) Sign In example. Available at:  https://getbootstrap.com/docs/5.3/examples/sign-in/>
+<!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
+<!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
+<!--FlatIcons(2023)Football manager icons. Available at https://www.flaticon.com/free-icons/sports-and-competition-->
+<!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->

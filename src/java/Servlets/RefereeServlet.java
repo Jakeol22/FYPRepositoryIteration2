@@ -65,11 +65,11 @@ public class RefereeServlet extends HttpServlet {
         
             
         
-        RefereeService refservice =  new RefereeService();
+        RefereeService refservice =  new RefereeService(); //creates an instance of RefereeService
 
-            ArrayList<RefereeModel>RefDetails = refservice.getRefereeDetails();
+            ArrayList<RefereeModel>RefDetails = refservice.getRefereeDetails(); //method is called from my referee service
             
-            request.setAttribute("RefDetails", RefDetails);
+            request.setAttribute("RefDetails", RefDetails); //Attribute for my jsp
             
             request.getRequestDispatcher("/ChosenReferee.jsp").forward(request, response);
         
@@ -100,3 +100,6 @@ public class RefereeServlet extends HttpServlet {
     }// </editor-fold>
 
 }
+
+
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)

@@ -14,6 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         
+              <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
    <%HttpSession sessionLogin = request.getSession();
     String email = (String) session.getAttribute("ManagerEmail");
     %>
@@ -53,36 +54,45 @@
     </div>
   </nav>
         
-                
+            
+        <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
    <% if (email != null) { %>
           <li>Hello, ${ManagerEmail}!</li>
           
           <% } %>
           
           
+          <!--My html/css was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
+          
           
                   <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5 ">
                 <div class="row gx-4 gx-lg-5 justify-content-center" >
                     
+                    <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
                     
-<c:forEach items="${RefDetails}" var="referee">
+<c:forEach items="${RefDetails}" var="referee"> <!--gets refdetails from servlet and sets referee as variable-->
     
                    
                     
                         
                          <div class="col mb-5" >
+                             
+                             <!--Width taken from W3Schools-->
                         <div class="card h-100"  style="width: 20rem; background-color: #E6E6FA;">
                             
                             
                             <div class="text-center">
                                 
                             <!-- <a href="https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Freepik - Flaticon</a>-->
-                            <img class="card-img-top" src="Images/ChooseReferee.png" style="width: 200px; height: 200px;" alt="Hoovers????" />
-                            <!-- Product details-->
+                            <img class="card-img-top" src="Images/ChooseReferee.png" style="width: 200px; height: 200px;" alt="????" />
+                           
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                   
+                                    
+                                    <!--Get the referees details-->
+                                    
+                                    <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
                                     <h5 class="fw-bolder">  ${referee.getRefereeFname()}
                                         ${referee.getRefereeLname()} </h5>
                                     <br>
@@ -92,9 +102,9 @@
                                    
                                 </div>
                             </div>
-                            <!-- Product actions-->
+                            
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="">Pay ${referee.getRefereeFname()} </a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="">Pay ${referee.getRefereeFname()} </a></div> 
                             </div>
                              
                         </div>
@@ -120,3 +130,11 @@
     </body>
 </html>
 
+
+<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)-->
+<!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
+<!--Bootstrap (2023) Sign In example. Available at:  https://getbootstrap.com/docs/5.3/examples/sign-in/>
+<!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
+<!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
+<!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->
+<!--W3Schools(2023) CSS units. Available at: https://www.w3schools.com/cssref/css_units.php

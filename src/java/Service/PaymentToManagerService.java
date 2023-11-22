@@ -13,11 +13,15 @@ import DataAccess.PaymentToManagerDAO;
  * @author My PC
  */
 public class PaymentToManagerService {
-    public void CreateTransaction(PaymentToManagerModel newPaymentToManager){
+    
+    //The following code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+    public void CreateTransaction(PaymentToManagerModel newPaymentToManager){ //Calls on create transaction from my PaymentToManagerDAO
         
-        PaymentToManagerDAO pmtm = new PaymentToManagerDAO();
-        pmtm.CreateTransaction(newPaymentToManager);
+        PaymentToManagerDAO pmtm = new PaymentToManagerDAO(); //Create new instance of PaymentToManagerDAO
+        pmtm.CreateTransaction(newPaymentToManager); //retrive the details
         return;
         
     }
 }
+
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)

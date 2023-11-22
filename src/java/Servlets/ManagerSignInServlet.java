@@ -140,3 +140,5 @@ public class ManagerSignInServlet extends HttpServlet {
     }// </editor-fold>
 
 }
+
+//Sunita Rai (2022)Login Page using JSP + Servlet + JDBC + MySQL (2022)- Step by Step Tutorial. Available at: https://www.youtube.com/watch?v=36cQjEEvK30 (Accessed: 05 November 2023).

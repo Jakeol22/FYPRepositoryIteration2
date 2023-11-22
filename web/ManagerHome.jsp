@@ -13,6 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         
+              <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
+        
    <%HttpSession sessionLogin = request.getSession();
     String email = (String) session.getAttribute("ManagerEmail");
     %>
@@ -52,13 +54,15 @@
     </div>
   </nav>
         
-                
+                    <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->  
    <% if (email != null) { %>
           <li>Hello, ${ManagerEmail}!</li>
           
           <% } %>
           
           
+          
+                <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
                               <div class="d-flex justify-content-center align-items-center" " >
                         <div class="card h-100" style=" background-color: #E6E6FA; border-color: black; border-width: 5px">
                             <!-- Product image-->
@@ -85,3 +89,11 @@
         
     </body>
 </html>
+
+<!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
+
+<!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
+<!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
+<!--FlatIcons(2023) . Available at: https://www.flaticon.com/free-icons/referee>
+
+<!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->

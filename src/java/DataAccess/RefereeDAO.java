@@ -26,7 +26,11 @@ public class RefereeDAO {
       DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
       Connection newconnection=database.getConnection(); //gets connection from db
          
-         long RefereeId=0;
+      
+      //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+        
+      
+        long RefereeId=0; //set variables to be populated
          String Fname = null;
          String Lname = null;
          String RefereeEmail = null;
@@ -36,22 +40,21 @@ public class RefereeDAO {
          String RefereeAddress = null;
          long CreditCardNumber = 0;
          
-         ArrayList<RefereeModel>RefereeDetails = new ArrayList();
+         ArrayList<RefereeModel>RefereeDetails = new ArrayList(); //create an array list based off my referee model
          
-         String SelectReferee = "SELECT * FROM referee";
+         String SelectReferee = "SELECT * FROM referee";  //select everything from my referee table
          
          try{
-             PreparedStatement pstm1 = newconnection.prepareStatement(SelectReferee);
+             PreparedStatement pstm1 = newconnection.prepareStatement(SelectReferee); 
              
-             ResultSet rset = pstm1.executeQuery();
+             ResultSet rset = pstm1.executeQuery(); //execute the query and store the results
              
-             int refcount=0;
+             
              
              while (rset.next()){
-                 //if (refcount>=NumReferee)
-                    // break;
+                
                  
-                 RefereeId= (rset.getLong(1));
+                 RefereeId= (rset.getLong(1)); //Get the date from the result set
                  Fname=(rset.getString(2));
                  Lname=(rset.getString(3));
                  RefereeEmail= (rset.getString(4));
@@ -62,7 +65,11 @@ public class RefereeDAO {
                  CreditCardNumber = (rset.getLong(9));
                  
                  
-                 RefereeModel RefModel = new RefereeModel(RefereeId,Fname,Lname,RefereeEmail,RefereePassword,RefereeDOB,RefereePhoneNumber,RefereeAddress,CreditCardNumber);
+                 //Create a new object of referee model
+                 
+                 RefereeModel RefModel = new RefereeModel(RefereeId,Fname,Lname,RefereeEmail,RefereePassword,RefereeDOB,RefereePhoneNumber,RefereeAddress,CreditCardNumber); 
+                
+                 //Populate the object using my setters from my RefereeModel class
                  RefModel.setRefereeID(RefereeId);
                  RefModel.setRefereeFname(Fname);
                  RefModel.setRefereeLname(Lname);
@@ -73,16 +80,19 @@ public class RefereeDAO {
                  RefModel.setRefereeAddress(RefereeAddress);
                  RefModel.setRefereeCardNumber(CreditCardNumber);
                  
+                 //add the object to the arraylist "RefereeDetails"
                  RefereeDetails.add(RefModel);
-                 refcount++;
+                 
              }
              
          }catch (SQLException ex){
               Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex); 
          }
      
-        return RefereeDetails; 
+        return RefereeDetails; //Return the array list
 
      }
 
 }
+
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)

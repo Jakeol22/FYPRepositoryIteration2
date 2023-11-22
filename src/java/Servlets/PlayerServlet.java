@@ -43,47 +43,60 @@ public class PlayerServlet extends HttpServlet  {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-String newaction = request.getParameter("newaction");
+        
+        //The process request code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+
+String newaction = request.getParameter("newaction"); //attribute from when the user hits a button
         
         ServletContext context = getServletContext();
-        PlayerService plrsrvc = new PlayerService();
+        PlayerService plrsrvc = new PlayerService(); //creates an instance of PlayerService
         String plr = null;
-        if (newaction == null) 
+        if (newaction == null) {//if newaction is null, you get redirected to login page
             request.getRequestDispatcher("/SignIn.jsp").forward(request, response);
        
        
         
-if (newaction != null && newaction.equals("GetManagerIDs")) {
+        }else if (newaction != null && newaction.equals("GetManagerIDs")) {
+    
+    //if new action isnt null and equals GetManagerIDs(from my jsp) the following happens
+    //Session is retrieved
+    //playerEmail is grabbed from session
+    
+    
+    //Session code taken from ChatGPT (2023)
+    
            
             HttpSession session = request.getSession();
             String playerEmail = (String) session.getAttribute("PlayerEmail");
            
             
-           try{
+            //this code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+         
             
-            ArrayList<Long> ManagerIDlist = plrsrvc.GetManagerID(playerEmail); 
+            ArrayList<Long> ManagerIDlist = plrsrvc.GetManagerID(playerEmail); //new array list that calls on GetManagerID method from Player service, using an instance of PlayerService. Retrives ManagerID using the session
             
-                request.setAttribute("ManagerIDlist", ManagerIDlist);
+                request.setAttribute("ManagerIDlist", ManagerIDlist);//Attribute for JSP
                 context.setAttribute("ManagerIDlist", ManagerIDlist);
                 
                 
                 
-               ArrayList<Long> PlayerIDlist = plrsrvc.GetPlayerID(playerEmail);  
+               ArrayList<Long> PlayerIDlist = plrsrvc.GetPlayerID(playerEmail);  //new array list that calls on GetManagerID method from Player service, using an instance of PlayerService. Retrives PlayerID using the session
                
-               request.setAttribute("PlayerIDlist", PlayerIDlist);
+               request.setAttribute("PlayerIDlist", PlayerIDlist);//Attribute for JSP
                context.setAttribute("PlayerIDlist", PlayerIDlist);
                
-              ArrayList<String> ManagerNameList = plrsrvc.GetManagerName(playerEmail);  
+              ArrayList<String> ManagerNameList = plrsrvc.GetManagerName(playerEmail);  //new array list that calls on GetManagerName method from Player service, using an instance of PlayerService. Retrives Manager using the session
                
-               request.setAttribute("ManagerNameList", ManagerNameList);
+               request.setAttribute("ManagerNameList", ManagerNameList);//Attribute for session
                context.setAttribute("ManagerNameList", ManagerNameList);
                
                
-                request.getRequestDispatcher("/Payment.jsp").forward(request, response);
-           }catch (SQLException ex) {
-               Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
-           }
+                
+
+           
+     request.getRequestDispatcher("Payment.jsp").forward(request, response);
         }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -116,15 +129,21 @@ if (newaction != null && newaction.equals("GetManagerIDs")) {
             throws ServletException, IOException {
         processRequest(request, response);
                 
+        
+        //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+
+        //setting variables that will hold what the user enters in the form
+        
         long playerid = Long.parseLong(request.getParameter("playerid"));
     long managerid = Long.parseLong(request.getParameter("managerid"));
     String Status = request.getParameter("Status");
     long AmountDue =Long.parseLong(request.getParameter("AmountDue"));
     LocalDate currentDate = LocalDate.now();
     
-  
+  //create a new object of PaymentToManagerModel
     PaymentToManagerModel newpmtmm = new PaymentToManagerModel(playerid, managerid, Status, AmountDue, currentDate);
     
+    //Populate the object with the variables from above, which hold what the user entered
     newpmtmm.setPlayerID(playerid);
     newpmtmm.setManagerID(managerid);
     newpmtmm.setPaymentToManagerStatus("Succesful");
@@ -135,7 +154,7 @@ if (newaction != null && newaction.equals("GetManagerIDs")) {
     ptms.CreateTransaction(newpmtmm);
         
 
-    
+    request.getRequestDispatcher("Success.jsp").forward(request, response);
     
                     
     
@@ -152,3 +171,6 @@ if (newaction != null && newaction.equals("GetManagerIDs")) {
     }// </editor-fold>
 
 }
+
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)
+//ChatGPT (2023) OpenAI. Available at: https://chat.openai.com/share/e7c505f4-8d53-423a-ad7d-a75b9556730e(Accessed: 18 November 2023). 
