@@ -60,37 +60,63 @@
           <% } %>
           
           
-           
           
-                              <div class="d-flex justify-content-center align-items-center"  >
-                                  
+                  <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5 ">
+                <div class="row gx-4 gx-lg-5 justify-content-center" >
+                    
+                    
+<c:forEach items="${RefDetails}" var="referee">
+    
+                   
+                    
+                        
+                         <div class="col mb-5" >
+                        <div class="card h-100"  style="width: 20rem; background-color: #E6E6FA;">
+                            
+                            
+                            <div class="text-center">
                                 
-                        <div class="card h-100" style=" background-color: #E6E6FA; border-color: black; border-width: 5px">
-                            <!-- Product image-->
-                             <c:forEach items="${RefDetails}" var="referee">
-                           <!-- <a href="https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Flat Icons - Flaticon</a>-->
-                            <img class="card-img-top" src="Images/referee (1).png" style="width: 250px; height: 250px;" alt="Hoovers????" ><img/>
+                            <!-- <a href="https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Freepik - Flaticon</a>-->
+                            <img class="card-img-top" src="Images/ChooseReferee.png" style="width: 200px; height: 200px;" alt="Hoovers????" />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h3>${referee.getRefereeFname()}</h3>
-
-                                    <h5 class="fw-bolder"> Pay a referee! </h5>
+                                   
+                                    <h5 class="fw-bolder">  ${referee.getRefereeFname()}
+                                        ${referee.getRefereeLname()} </h5>
                                     <br>
-                                  
+                                    <p>Email Address: ${referee.getRefereeEmail()}</p>
+                                    <p>Phone Number: 0${referee.getRefereePhoneNumber()}</p>
                                    
                                    
                                 </div>
-                               
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="ChosenReferee.jsp">Make your payment!</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="">Pay ${referee.getRefereeFname()} </a></div>
                             </div>
-                            
-                             </c:forEach>
+                             
                         </div>
+                            
+                         </div>
+                         </div>
+                       
+                      
+                             </c:forEach>  
                     </div>
+                   
+
+
+
+                   
+                        </div>
+                    
+        </section>
+          
+            
+          
+ 
     </body>
 </html>
 
