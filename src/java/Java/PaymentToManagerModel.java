@@ -5,7 +5,7 @@
  */
 package Java;
 
-import java.security.Timestamp;
+
 
 import java.time.LocalDate;
 
@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class PaymentToManagerModel {
     
     
-    
+     //Local Date taken from website: Baeldung
     
     private long PlayerID;
     private long ManagerID;
@@ -117,3 +117,6 @@ public class PaymentToManagerModel {
     
     
 }
+
+
+//Palaniappan, V. (2023) Creating a LocalDate with values in Java, Baeldung. Available at: https://www.baeldung.com/java-creating-localdate-with-values (Accessed: 17 November 2023). 

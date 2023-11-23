@@ -109,7 +109,8 @@
             
             <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
             <select id="form_need" name="playerid" class="form-control" required="required" data-error="Please specify your need.">
-      <c:forEach var="PlayerID" items="${PlayerIDlist}">
+      <!--Asked CHATGPT for help on making a for loop in a dropdown (2023)-->
+                <c:forEach var="PlayerID" items="${PlayerIDlist}">
         <option value="${PlayerID}">${PlayerID}</option> <!--Gets Player ID from servlet-->
     </c:forEach>
             </select>
@@ -121,8 +122,10 @@
              <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
             <label for="form_need">Your Managers ID is: </label>
             <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
-      <c:forEach var="ManagerID" items="${ManagerIDlist}">
-        <option value="${ManagerID}">${ManagerID}</option> <!--Recognises Player ID from servlet-->
+      
+                <!--Asked CHATGPT for help on making a for loop in a dropdown (2023)-->
+                <c:forEach var="ManagerID" items="${ManagerIDlist}">
+        <option value="${ManagerID}">${ManagerID}</option> <!--Recognises Manager ID from servlet-->
     </c:forEach>
             </select>
         </div>
@@ -186,5 +189,6 @@
 <!--BBbootstrap (2019) Bootstrap 4 Simple Contact Form. Available at https://bbbootstrap.com/snippets/simple-contact-form-74408136 -->
 <!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
+<!--ChatGPT (2023) OpenAI. Available at: https://chat.openai.com/share/6762dd59-58fd-4ed9-b34a-e951df487afe (Accessed: 18 November 2023). -->
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
 <!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->

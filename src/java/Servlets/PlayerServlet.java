@@ -130,7 +130,7 @@ String newaction = request.getParameter("newaction"); //attribute from when the 
         processRequest(request, response);
                 
         
-        //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+                //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
 
         //setting variables that will hold what the user enters in the form
         
@@ -140,7 +140,7 @@ String newaction = request.getParameter("newaction"); //attribute from when the 
     long AmountDue =Long.parseLong(request.getParameter("AmountDue"));
     LocalDate currentDate = LocalDate.now();
     
-  //create a new object of PaymentToManagerModel
+  //create a new object of PaymentToManagerModel class
     PaymentToManagerModel newpmtmm = new PaymentToManagerModel(playerid, managerid, Status, AmountDue, currentDate);
     
     //Populate the object with the variables from above, which hold what the user entered
@@ -150,13 +150,13 @@ String newaction = request.getParameter("newaction"); //attribute from when the 
     newpmtmm.setPaymentToManagerAmount(AmountDue);
     newpmtmm.setDateOfPaymentToManager(currentDate);
    
-    PaymentToManagerService ptms = new PaymentToManagerService();
+    PaymentToManagerService ptms = new PaymentToManagerService();  //Create new object from Payment to manager service
     ptms.CreateTransaction(newpmtmm);
         
 
     request.getRequestDispatcher("Success.jsp").forward(request, response);
     
-                    
+          
     
     }
 

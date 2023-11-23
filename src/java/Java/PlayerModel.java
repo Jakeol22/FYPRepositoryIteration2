@@ -13,6 +13,7 @@ import java.time.LocalDate;
  */
 public class PlayerModel {
     
+     //Local Date taken from website: Baeldung
     private long PlayerID;
     private String PlayerFname;
     private String PlayerLname;
@@ -211,3 +212,5 @@ public class PlayerModel {
             
             
 }
+
+//Palaniappan, V. (2023) Creating a LocalDate with values in Java, Baeldung. Available at: https://www.baeldung.com/java-creating-localdate-with-values (Accessed: 17 November 2023). 

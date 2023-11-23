@@ -21,23 +21,25 @@ public class PlayerService {
     public  ArrayList<Long> GetManagerID(String playerEmail)  { //Calls on the GetManagerID method from my dao
         
         
-        PlayerDAO plr = new PlayerDAO(); //creates a new instance of 
-        return plr.GetManagerID(playerEmail);
+        PlayerDAO plr = new PlayerDAO(); //creates a new instance of PlayerDAO
+        return plr.GetManagerID(playerEmail); //gets the ManagerID of the person logged in 
     }
     
     
     
-    public  ArrayList<Long> GetPlayerID(String playerEmail) {
+    public  ArrayList<Long> GetPlayerID(String playerEmail) {//Calls on the GetPlayerID method from my dao
         
         
-        PlayerDAO plr1 = new PlayerDAO();
-        return plr1.GetPlayerID(playerEmail);
+        PlayerDAO plr1 = new PlayerDAO(); //creates a new instance of PlayerDAO
+        return plr1.GetPlayerID(playerEmail); //gets the PlayerID of the person logged in 
     }
     
-        public  ArrayList<String> GetManagerName(String playerEmail){
+        public  ArrayList<String> GetManagerName(String playerEmail){ //Calls on the GetManagerName method from my dao
         
         
-        PlayerDAO plr2 = new PlayerDAO();
-        return plr2.GetManagerName(playerEmail);
+        PlayerDAO plr2 = new PlayerDAO(); //creates a new instance of PlayerDAO
+        return plr2.GetManagerName(playerEmail); //gets the ManagerName of the person logged in 
     }
 }
+
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)

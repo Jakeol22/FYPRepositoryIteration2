@@ -12,6 +12,8 @@ import java.time.LocalDate;
  * @author My PC
  */
 public class RefereeModel {
+    
+    //Local Date taken from website: Baeldung
     private long RefereeID;
     private String RefereeFname;
     private String RefereeLname;
@@ -162,3 +164,6 @@ public class RefereeModel {
     
     
 }
+
+
+//Palaniappan, V. (2023) Creating a LocalDate with values in Java, Baeldung. Available at: https://www.baeldung.com/java-creating-localdate-with-values (Accessed: 17 November 2023). 

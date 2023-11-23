@@ -63,7 +63,7 @@ public class RefereeServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-            
+            //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
         
         RefereeService refservice =  new RefereeService(); //creates an instance of RefereeService
 
