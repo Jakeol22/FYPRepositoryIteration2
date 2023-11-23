@@ -172,5 +172,5 @@ String newaction = request.getParameter("newaction"); //attribute from when the 
 
 }
 
-//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)
-//ChatGPT (2023) OpenAI. Available at: https://chat.openai.com/share/e7c505f4-8d53-423a-ad7d-a75b9556730e(Accessed: 18 November 2023). 
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.
+//ChatGPT (2023) OpenAI.Help with session. Available at: https://chat.openai.com/share/e7c505f4-8d53-423a-ad7d-a75b9556730e 

@@ -51,6 +51,10 @@
         
         <br>
         <br>
+        
+        <h3 style="text-align: center;"> Manager Sign In.</h3>
+                <br>
+        <br>
 <form action=ManagerSignInServlet method="post">  
     
                     

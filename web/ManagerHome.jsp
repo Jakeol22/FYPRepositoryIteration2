@@ -62,7 +62,7 @@
           
           
           
-                <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
+                <!--The html/css was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
                               <div class="d-flex justify-content-center align-items-center" " >
                         <div class="card h-100" style=" background-color: #E6E6FA; border-color: black; border-width: 5px">
                             <!-- Product image-->
@@ -73,7 +73,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                    
-                                    <h5 class="fw-bolder"> Pay your manager! </h5>
+                                    <h5 class="fw-bolder"> Pay a referee! </h5>
                                     <br>
                                   
                                    
@@ -95,5 +95,4 @@
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
 <!--FlatIcons(2023) . Available at: https://www.flaticon.com/free-icons/referee>
-
 <!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->

@@ -107,9 +107,10 @@
                           
             <label for="form_need">Your Player ID is: </label>
             
-            <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
+            
             <select id="form_need" name="playerid" class="form-control" required="required" data-error="Please specify your need.">
       <!--Asked CHATGPT for help on making a for loop in a dropdown (2023)-->
+      <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
                 <c:forEach var="PlayerID" items="${PlayerIDlist}">
         <option value="${PlayerID}">${PlayerID}</option> <!--Gets Player ID from servlet-->
     </c:forEach>
@@ -157,6 +158,7 @@
 
                     <div class="col-md-12">
                         
+                        <!-- Asked chatgpt about this as newaction was null-->
                         <input type="hidden" name="newaction" value="MakePayment">
 
                         <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
@@ -185,10 +187,11 @@
     </body>
 </html>
 
-<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)-->
+<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.-->
 <!--BBbootstrap (2019) Bootstrap 4 Simple Contact Form. Available at https://bbbootstrap.com/snippets/simple-contact-form-74408136 -->
 <!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
-<!--ChatGPT (2023) OpenAI. Available at: https://chat.openai.com/share/6762dd59-58fd-4ed9-b34a-e951df487afe (Accessed: 18 November 2023). -->
+<!--ChatGPT (2023) OpenAI. Help on dropdown loop. Available at: https://chat.openai.com/share/6762dd59-58fd-4ed9-b34a-e951df487afe  -->
+<!--ChatGPT (2023) OpenAI. Help on "new action" being null. Available at: https://chat.openai.com/share/06c7a056-d61b-443e-b8e9-d820d92fad0e -->
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
 <!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->

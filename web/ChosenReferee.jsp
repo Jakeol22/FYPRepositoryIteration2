@@ -92,13 +92,13 @@
                                     
                                     <!--Get the referees details-->
                                     
-                                    <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
+                                    <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (BrowseHoovers.jsp)(2022)-->
                                     <h5 class="fw-bolder">  ${referee.getRefereeFname()} <!--Calls on my getRefereeFname method from my RefereeModel-->
                                         ${referee.getRefereeLname()} </h5> <!--Calls on my getRefereeLname method from my RefereeModel-->
                                     <br>
                                     <p>Email Address: ${referee.getRefereeEmail()}</p> <!--Calls on my getRefereeEmail method from my RefereeModel-->
                                     <p>Phone Number: 0${referee.getRefereePhoneNumber()}</p> <!--Calls on my getRefereePhoneNumber method from my RefereeModel-->
-                                   
+                                    <p>Based in: ${referee.getRefereeAddress()}</p> <!--Calls on my getRefereeAddress method from my RefereeModel-->
                                    
                                 </div>
                             </div>
@@ -131,9 +131,10 @@
 </html>
 
 
-<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)-->
+<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.-->
 <!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
+<!--Freepik (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee-->
 <!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->
-<!--W3Schools(2023) CSS units. Available at: https://www.w3schools.com/cssref/css_units.php
+<!--W3Schools(2023) CSS units. Available at: https://www.w3schools.com/cssref/css_units.php. (Accessed 22 November, 2023)

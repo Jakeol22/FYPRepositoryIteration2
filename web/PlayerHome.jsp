@@ -63,7 +63,7 @@
           
           
           
-          <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
+          <!--This html/css was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
                               <div class="d-flex justify-content-center align-items-center" " >
                         <div class="card h-100" style=" background-color: #E6E6FA; border-color: black; border-width: 5px">
                             
@@ -92,7 +92,7 @@
     </body>
 </html>
 
-<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project (Accessed from 15th to 22nd of November,2023)-->
+<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.-->
 <!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
