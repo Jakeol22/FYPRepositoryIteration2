@@ -17,9 +17,9 @@ public class PaymentToManagerService {
     //The following code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
     public void CreateTransaction(PaymentToManagerModel newPaymentToManager){ //Calls on create transaction from my PaymentToManagerDAO
         
-        PaymentToManagerDAO pmtm = new PaymentToManagerDAO(); //Create new instance of PaymentToManagerDAO
-        pmtm.CreateTransaction(newPaymentToManager); //retrive the details
-        return;
+        PaymentToManagerDAO pmtm = new PaymentToManagerDAO(); //Create new object "pmtm" as an instance of PaymentToManagerDAO
+        pmtm.CreateTransaction(newPaymentToManager); //Creates transaction using the CreateTransaction method
+        
         
     }
 }

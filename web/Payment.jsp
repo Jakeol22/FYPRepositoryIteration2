@@ -140,7 +140,7 @@
             <label for="form_need">Amount due to Manager (€):</label>
             <select id="form_need" name="AmountDue" class="form-control" required="required" data-error="Please specify your need.">
               
-              <option> 5 </option> <!--Amount to be paif-->
+              <option> 5 </option> <!--Amount to be paid-->
             </select>
         </div>
         </div>
@@ -158,7 +158,7 @@
 
                     <div class="col-md-12">
                         
-                        <!-- Asked chatgpt about this as newaction was null-->
+                        <!-- Asked chatgpt about this as newaction was null when selecting the button-->
                         <input type="hidden" name="newaction" value="MakePayment">
 
                         <input type="submit" class="btn btn-success btn-send  pt-2 btn-block

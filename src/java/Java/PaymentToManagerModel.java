@@ -13,6 +13,8 @@ import java.time.LocalDate;
  *
  * @author My PC
  */
+
+//This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
 public class PaymentToManagerModel {
     
     
@@ -119,4 +121,6 @@ public class PaymentToManagerModel {
 }
 
 
-//Palaniappan, V. (2023) Creating a LocalDate with values in Java, Baeldung. Available at: https://www.baeldung.com/java-creating-localdate-with-values (Accessed: 17 November 2023). 
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.
+
+//Palaniappan, V. (2023) Creating a LocalDate with values in Java, Baeldung. Available at: https://www.baeldung.com/java-creating-localdate-with-values (Accessed: 20 November 2023). 

@@ -29,8 +29,8 @@ public class RefereeDAO {
       
       //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
         
-      
-        long RefereeId=0; //set variables to be populated
+      //set variables to be populated - represent my Referee Model
+        long RefereeId=0; 
          String Fname = null;
          String Lname = null;
          String RefereeEmail = null;
@@ -54,7 +54,7 @@ public class RefereeDAO {
              while (rset.next()){
                 
                  
-                 RefereeId= (rset.getLong(1)); //Get the date from the result set
+                 RefereeId= (rset.getLong(1)); //Get the data from the result set
                  Fname=(rset.getString(2));
                  Lname=(rset.getString(3));
                  RefereeEmail= (rset.getString(4));

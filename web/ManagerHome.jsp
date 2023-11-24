@@ -80,7 +80,7 @@
                                    
                                 </div>
                             </div>
-                            <!-- Product actions-->
+                            
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="RefereeServlet">Make your payment!</a></div>
                             </div>
@@ -91,7 +91,6 @@
 </html>
 
 <!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
-
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
 <!--FlatIcons(2023) . Available at: https://www.flaticon.com/free-icons/referee>
