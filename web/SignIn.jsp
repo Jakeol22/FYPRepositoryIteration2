@@ -63,7 +63,7 @@
 <br>
     
     <div class="form-floating" style="width: 30%; margin: 0 auto;">
-        <h4 style="text-align: center">Enter your password :):)</h4>
+        <h4 style="text-align: center">Enter your password</h4>
       <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password"> <!--attribute "password" goes through SignInServlet-->
     </div>
         
