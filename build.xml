@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="FYP-Iteration2.0" default="default" basedir=".">
-    <description>Builds, tests, and runs the project FYP-Iteration2.0.</description>
+<project name="FYP-Iteration3.0" default="default" basedir=".">
+    <description>Builds, tests, and runs the project FYP-Iteration3.0.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 
