@@ -22,6 +22,13 @@ public class RefereeService {
                 
         return RefDetails.getAllReferees(); //Getting and outputting the referee details
     }
+    
+    public RefereeModel getRefereeById(int id){
+        RefereeDAO RefID = new RefereeDAO();
+        
+        return RefID.getRefereeById(id);
+        
+    }
 }
 
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project 

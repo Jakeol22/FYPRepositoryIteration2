@@ -93,6 +93,19 @@ public class RefereeDAO {
 
      }
      
+     
+     //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).(See "HooverDAO")
+       public RefereeModel getRefereeById(int id){
+          ArrayList<RefereeModel> allReferees = getAllReferees();
+       for(RefereeModel refId: allReferees){
+           if(refId.getRefereeID() == id) {
+               return refId;
+           }
+       } 
+       return null;
+  
+  
+}
 }
 
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.
