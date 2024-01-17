@@ -69,7 +69,7 @@
             <h3> The referee you have chosen is:
                       
         
-                ${referee.getRefereeFname()}     
+                    ${RefName}
    
                 
             
@@ -105,8 +105,8 @@
             <select id="form_need" name="playerid" class="form-control" required="required" data-error="Please specify your need.">
       <!--Asked CHATGPT for help on making a for loop in a dropdown (2023)-->
       <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
-                <c:forEach var="PlayerID" items="">
-        <option value="">$</option> <!--Gets Manager ID from servlet-->
+                <c:forEach var="Manager" items="${ManagerID}">
+        <option value="${Manager}">${Manager}</option> <!--Gets Manager ID from servlet-->
     </c:forEach>
             </select>
         </div>
@@ -119,8 +119,8 @@
             <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
       
                 <!--Asked CHATGPT for help on making a for loop in a dropdown (2023)-->
-                <c:forEach items="${RefDetails}" var="referee"> 
-        <option value="${referee.getRefereeID()}">${referee.getRefereeID()}</option> <!--Recognises Referee ID from servlet-->
+                <c:forEach items="${Ref}" var="referee"> 
+        <option value="${referee}" >${referee}</option> <!--Recognises Referee ID from servlet-->
     </c:forEach>
             </select>
         </div>

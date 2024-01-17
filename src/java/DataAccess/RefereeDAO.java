@@ -93,19 +93,69 @@ public class RefereeDAO {
 
      }
      
-     
-     //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).(See "HooverDAO")
-       public RefereeModel getRefereeById(int id){
-          ArrayList<RefereeModel> allReferees = getAllReferees();
-       for(RefereeModel refId: allReferees){
-           if(refId.getRefereeID() == id) {
-               return refId;
-           }
-       } 
-       return null;
-  
-  
-}
+        public ArrayList<Long>GetRefereeID(){
+        
+      DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
+      Connection newconnection=database.getConnection(); //gets connection from db
+        
+        long RefereeID=0;
+        
+        ArrayList<Long>RefereeIDList = new ArrayList<>(); //Create a new arraylist PlayerIDlist
+        
+              try{
+          PreparedStatement Smnt1;
+          
+          Smnt1=newconnection.prepareStatement("Select RefereeID from referee");
+          
+          
+          
+          ResultSet Rst2 =Smnt1.executeQuery();
+          
+        
+          
+          while (Rst2.next()){
+              RefereeIDList.add(Rst2.getLong("RefereeID")); 
+              
+   
+          }
+      }catch (SQLException ex){
+          Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      return RefereeIDList; //return the Arraylist
+    } 
+
+     public ArrayList<String>GetRefereeName(){
+        
+      DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
+      Connection newconnection=database.getConnection(); //gets connection from db
+        
+        String RefereeName="";
+        
+        ArrayList<String>RefereeNames = new ArrayList<>(); //Create a new arraylist PlayerIDlist
+        
+              try{
+          PreparedStatement Smnt1;
+          
+          Smnt1=newconnection.prepareStatement("Select RefereeFname, RefereeLname from referee");
+          
+        
+          
+          ResultSet Rst2 =Smnt1.executeQuery();
+          
+        
+          
+          while (Rst2.next()){
+              RefereeNames.add(Rst2.getString("RefereeFname")); 
+              RefereeNames.add(Rst2.getString("RefereeLname")); 
+              
+   
+          }
+      }catch (SQLException ex){
+          Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      return RefereeNames; //return the Arraylist
+    } 
+        
 }
 
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.

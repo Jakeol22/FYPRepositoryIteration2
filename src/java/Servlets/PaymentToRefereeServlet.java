@@ -6,6 +6,7 @@
 package Servlets;
 
 import Java.RefereeModel;
+import Service.ManagerService;
 import Service.RefereeService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,23 +40,45 @@ public class PaymentToRefereeServlet extends HttpServlet {
       
                 //The process request code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
 
-String ref = request.getParameter("ref"); //attribute from when the user hits a button
+String Ref = request.getParameter("Ref"); //attribute from when the user hits a button
         
         ServletContext context = getServletContext();
         RefereeService refsrvc = new RefereeService(); //creates an instance of RefereeService
+        
+        ManagerService mgrsrvc = new ManagerService();
+        
         String reff = null;
-        if (ref == null) {//if newaction is null, you get redirected to login page
+        if (Ref == null) {//if newaction is null, you get redirected to login page
             request.getRequestDispatcher("/SignIn.jsp").forward(request, response);
        
        
         
-        }else if (ref != null && ref.equals("GetRefIDs")) {
+        }else if (Ref != null) {
 
-            ArrayList<RefereeModel>RefDetails = refsrvc.getRefereeDetails(); //method is called from my referee service
+            ArrayList<Long>RefID = refsrvc.GetRefereeID(); //method is called from my referee service
 
+           
             
-            request.setAttribute("RefDetails", RefDetails); //Attribute for my jsp
-            context.setAttribute("RefDetails", RefDetails);
+            
+            request.setAttribute("Ref", Ref); //Attribute for my jsp
+            context.setAttribute("Ref", Ref);
+            
+            
+            ArrayList<String>RefName = refsrvc.GetRefereeName();//get referees name from ref service
+            
+            request.setAttribute("RefName", RefName);
+            context.setAttribute("RefName", RefName);
+            
+            HttpSession session = request.getSession();
+            String managerEmail = (String) session.getAttribute("ManagerEmail");
+            
+            ArrayList<Long>ManagerID = mgrsrvc.GetManagerID(managerEmail); //get the manager id of whos logged in
+            
+            request.setAttribute("ManagerID", ManagerID); //Attribute for my jsp
+            context.setAttribute("ManagerID", ManagerID);
+            
+            
+            
             
             request.getRequestDispatcher("/PaymentReferee.jsp").forward(request, response);
         }
