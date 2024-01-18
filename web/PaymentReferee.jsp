@@ -102,7 +102,7 @@
             <label for="form_need">Your Manager ID is: </label>
             
             
-            <select id="form_need" name="playerid" class="form-control" required="required" data-error="Please specify your need.">
+            <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
       <!--Asked CHATGPT for help on making a for loop in a dropdown (2023)-->
       <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
                 <c:forEach var="Manager" items="${ManagerID}">
@@ -116,7 +116,7 @@
         <div class="form-group">
              <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
             <label for="form_need">The chosen referees ID is: </label>
-            <select id="form_need" name="managerid" class="form-control" required="required" data-error="Please specify your need.">
+            <select id="form_need" name="refereeid" class="form-control" required="required" data-error="Please specify your need.">
       
                 <!--Asked CHATGPT for help on making a for loop in a dropdown (2023)-->
                 <c:forEach items="${Ref}" var="referee"> 
@@ -152,8 +152,7 @@
 
                     <div class="col-md-12">
                         
-                        <!-- Asked chatgpt about this as newaction was null when selecting the button-->
-                        <input type="hidden" name="newaction" value="MakePayment">
+
 
                         <input type="submit" class="btn btn-success btn-send  pt-2 btn-block
                             " value="Pay now!" >

@@ -5,11 +5,14 @@
  */
 package Servlets;
 
+import Java.PaymentToRefereeModel;
 import Java.RefereeModel;
 import Service.ManagerService;
+import Service.PaymentToRefereeService;
 import Service.RefereeService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -41,15 +44,19 @@ public class PaymentToRefereeServlet extends HttpServlet {
                 //The process request code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
 
 String Ref = request.getParameter("Ref"); //attribute from when the user hits a button
+
+
         
         ServletContext context = getServletContext();
         RefereeService refsrvc = new RefereeService(); //creates an instance of RefereeService
         
         ManagerService mgrsrvc = new ManagerService();
         
-        String reff = null;
-        if (Ref == null) {//if newaction is null, you get redirected to login page
-            request.getRequestDispatcher("/SignIn.jsp").forward(request, response);
+ 
+        
+        
+        if (Ref == null) {//if ref  null, you get redirected to login page
+            request.getRequestDispatcher("/SuccessManagerPaymentToReferee.jsp").forward(request, response);
        
        
         
@@ -58,8 +65,6 @@ String Ref = request.getParameter("Ref"); //attribute from when the user hits a 
             ArrayList<Long>RefID = refsrvc.GetRefereeID(); //method is called from my referee service
 
            
-            
-            
             request.setAttribute("Ref", Ref); //Attribute for my jsp
             context.setAttribute("Ref", Ref);
             
@@ -69,8 +74,10 @@ String Ref = request.getParameter("Ref"); //attribute from when the user hits a 
             request.setAttribute("RefName", RefName);
             context.setAttribute("RefName", RefName);
             
-            HttpSession session = request.getSession();
+            
+                       HttpSession session = request.getSession();
             String managerEmail = (String) session.getAttribute("ManagerEmail");
+ 
             
             ArrayList<Long>ManagerID = mgrsrvc.GetManagerID(managerEmail); //get the manager id of whos logged in
             
@@ -83,7 +90,8 @@ String Ref = request.getParameter("Ref"); //attribute from when the user hits a 
             request.getRequestDispatcher("/PaymentReferee.jsp").forward(request, response);
         }
     
-    }
+    }    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -97,6 +105,8 @@ String Ref = request.getParameter("Ref"); //attribute from when the user hits a 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        
     }
 
     /**
@@ -114,8 +124,26 @@ String Ref = request.getParameter("Ref"); //attribute from when the user hits a 
         
                     //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
         
+   long ManagerID = Long.parseLong(request.getParameter("managerid"));
+   long RefereeID = Long.parseLong(request.getParameter("refereeid"));
+   String status = request.getParameter("status");
+   long AmountDue = Long.parseLong(request.getParameter("AmountDue"));
+   LocalDate newDate = LocalDate.now();
    
+   PaymentToRefereeModel ptrm = new PaymentToRefereeModel(ManagerID, RefereeID, status, AmountDue, newDate);
            
+   ptrm.setManagerID(ManagerID);
+   ptrm.setRefereeID(RefereeID);
+   ptrm.setPaymentToRefereeStatus("Succesful");
+   ptrm.setPaymentToRefereeAmount(AmountDue);
+   ptrm.setDateOfPaymentToReferee(newDate);
+   
+   PaymentToRefereeService ptrs = new PaymentToRefereeService();
+   ptrs.CreateNewTransaction(ptrm);
+   
+ System.out.println("Before redirect");
+   request.getRequestDispatcher("/SuccessManagerPaymentToReferee.jsp").forward(request, response);
+   System.out.println("After redirect");
     }
 
     /**
@@ -129,3 +157,5 @@ String Ref = request.getParameter("Ref"); //attribute from when the user hits a 
     }// </editor-fold>
 
 }
+
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.
