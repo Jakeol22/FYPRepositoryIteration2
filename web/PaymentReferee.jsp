@@ -69,7 +69,7 @@
             <h3> The referee you have chosen is:
                       
         
-                    ${RefName}
+                    ${RefereeName}
    
                 
             

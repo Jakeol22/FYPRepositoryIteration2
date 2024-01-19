@@ -41,54 +41,7 @@ public class PaymentToRefereeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
       
-                //The process request code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
-
-String Ref = request.getParameter("Ref"); //attribute from when the user hits a button
-
-
-        
-        ServletContext context = getServletContext();
-        RefereeService refsrvc = new RefereeService(); //creates an instance of RefereeService
-        
-        ManagerService mgrsrvc = new ManagerService();
-        
- 
-        
-        
-        if (Ref == null) {//if ref  null, you get redirected to login page
-            request.getRequestDispatcher("/SuccessManagerPaymentToReferee.jsp").forward(request, response);
-       
-       
-        
-        }else if (Ref != null) {
-
-            ArrayList<Long>RefID = refsrvc.GetRefereeID(); //method is called from my referee service
-
-           
-            request.setAttribute("Ref", Ref); //Attribute for my jsp
-            context.setAttribute("Ref", Ref);
-            
-            
-            ArrayList<String>RefName = refsrvc.GetRefereeName();//get referees name from ref service
-            
-            request.setAttribute("RefName", RefName);
-            context.setAttribute("RefName", RefName);
-            
-            
-                       HttpSession session = request.getSession();
-            String managerEmail = (String) session.getAttribute("ManagerEmail");
- 
-            
-            ArrayList<Long>ManagerID = mgrsrvc.GetManagerID(managerEmail); //get the manager id of whos logged in
-            
-            request.setAttribute("ManagerID", ManagerID); //Attribute for my jsp
-            context.setAttribute("ManagerID", ManagerID);
-            
-            
-            
-            
-            request.getRequestDispatcher("/PaymentReferee.jsp").forward(request, response);
-        }
+               
     
     }    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 

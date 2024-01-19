@@ -29,11 +29,11 @@ public  ArrayList<Long> GetRefereeID()  { //Calls on the GetRefereeID method fro
         return plr.GetRefereeID(); //gets the Referee ID 
     }
 
-        public  ArrayList<String> GetRefereeName(){ //Calls on the GetRefereeName method from my dao
+        public  String GetRefereeName(long RefereeID){ //Calls on the GetRefereeName method from my dao
         
         
         RefereeDAO ref2 = new RefereeDAO(); //creates a new instance of PlayerDAO
-        return ref2.GetRefereeName(); //gets the ManagerName of the person logged in 
+        return ref2.GetRefereeName(RefereeID); //gets the ManagerName of the person logged in 
     }
 }
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project 

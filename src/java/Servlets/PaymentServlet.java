@@ -7,7 +7,9 @@ package Servlets;
 
 import Java.DatabaseConnection;
 import Java.PaymentToManagerModel;
+import Service.ManagerService;
 import Service.PaymentToManagerService;
+import Service.RefereeService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -19,11 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -43,18 +47,57 @@ public class PaymentServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PaymentServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PaymentServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+     //The process request code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+
+String Ref = request.getParameter("Ref"); //attribute from when the user hits a button
+
+
+        
+        ServletContext context = getServletContext();
+        RefereeService refsrvc = new RefereeService(); //creates an instance of RefereeService
+        
+        ManagerService mgrsrvc = new ManagerService(); //creates an instance of ManagerService
+        
+ 
+        
+        
+        if (Ref == null) {//if String ref is null (when you click the button in ChosenReferee JSP), you get redirected to login page
+            request.getRequestDispatcher("/ManagerSignIn.jsp").forward(request, response);
+       
+       
+        
+        }else if (Ref != null) {
+
+            ArrayList<Long>RefID = refsrvc.GetRefereeID(); //method is called from my referee service
+
+           
+            request.setAttribute("Ref", Ref); //Attribute for my jsp
+            context.setAttribute("Ref", Ref);
+            
+            
+            //Code for getting Referee Name taken from ChatGPT (2024)
+            long RefereeID = Long.parseLong(Ref);
+            String RefereeName = refsrvc.GetRefereeName(RefereeID);
+            
+        request.setAttribute("RefereeName", RefereeName);
+        context.setAttribute("RefereeName", RefereeName);
+            
+//Session code taken from ChatGPT (2023)
+
+            HttpSession session = request.getSession();
+            String managerEmail = (String) session.getAttribute("ManagerEmail");
+ 
+            
+            ArrayList<Long>ManagerID = mgrsrvc.GetManagerID(managerEmail); //get the manager id of whos logged in
+            
+            request.setAttribute("ManagerID", ManagerID); //Attribute for my jsp
+            context.setAttribute("ManagerID", ManagerID);
+            
+            
+            
+            
+            request.getRequestDispatcher("/PaymentReferee.jsp").forward(request, response);
+        
         }
     }
 
@@ -105,3 +148,7 @@ public class PaymentServlet extends HttpServlet {
     }// </editor-fold>
 
 }
+
+//Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.
+//ChatGPT (2023) OpenAI.Help with session. Available at: https://chat.openai.com/share/e7c505f4-8d53-423a-ad7d-a75b9556730e 
+//ChatGPT (2024) OpenAI.Help Returning a name, using RefereeID. Available at: https://chat.openai.com/share/86b7a088-0c7d-45aa-8aa4-1f3aade281bd 

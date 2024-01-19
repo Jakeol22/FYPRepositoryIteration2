@@ -124,38 +124,41 @@ public class RefereeDAO {
       return RefereeIDList; //return the Arraylist
     } 
 
-     public ArrayList<String>GetRefereeName(){
-        
-      DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
+public String GetRefereeName(long RefereeID){
+    DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
       Connection newconnection=database.getConnection(); //gets connection from db
         
-        String RefereeName="";
+      //Code for getting Referee Name taken from ChatGPT (2024)
+      String RefereeName="";
         
-        ArrayList<String>RefereeNames = new ArrayList<>(); //Create a new arraylist PlayerIDlist
-        
-              try{
+          try{
           PreparedStatement Smnt1;
           
-          Smnt1=newconnection.prepareStatement("Select RefereeFname, RefereeLname from referee");
+          Smnt1=newconnection.prepareStatement("Select RefereeFname, RefereeLname from referee where RefereeID=?");
           
-        
+           Smnt1.setLong(1, RefereeID);
+          
+         
           
           ResultSet Rst2 =Smnt1.executeQuery();
           
         
           
-          while (Rst2.next()){
-              RefereeNames.add(Rst2.getString("RefereeFname")); 
-              RefereeNames.add(Rst2.getString("RefereeLname")); 
+          if (Rst2.next()){
               
+              String FirstName = Rst2.getString("RefereeFname");
+              String LastName = Rst2.getString("RefereeLname");
    
+     
+     RefereeName  = FirstName + " " + LastName;
           }
       }catch (SQLException ex){
           Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
       }
-      return RefereeNames; //return the Arraylist
-    } 
-        
+    return RefereeName; //return the Arraylist     
+}
+     
 }
 
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.
+//ChatGPT (2024) OpenAI.Help Returning a name, using RefereeID. Available at: https://chat.openai.com/share/86b7a088-0c7d-45aa-8aa4-13aade2f81bd 

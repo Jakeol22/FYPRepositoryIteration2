@@ -103,9 +103,9 @@
                                 </div>
                             </div>
                             
-                                   <!--Asked Chat GPT for help on bringing the user ID from one page to the next (2023)-->
+                                   <!--Asked Chat GPT for help on bringing the user ID from one page to the next (2024)-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="http://localhost:8080/FYP-Iteration3.0/PaymentToRefereeServlet?Ref=${referee.getRefereeID()}">Pay ${referee.getRefereeFname()} </a></div> 
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="http://localhost:8080/FYP-Iteration3.0/PaymentServlet?Ref=${referee.getRefereeID()}">Pay ${referee.getRefereeFname()} </a></div> 
                             </div>
                              
                         </div>
@@ -135,7 +135,7 @@
 <!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.-->
 <!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
-<!--Chat GPT (2023). Help with bringing an ID from one page to the next. Available at: https://chat.openai.com/share/86b7a088-0c7d-45aa-8aa4-1f3aade281bd-->
+<!--Chat GPT (2024). Help with bringing an ID from one page to the next. Available at: https://chat.openai.com/share/86b7a088-0c7d-45aa-8aa4-1f3aade281bd-->
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
 <!--Freepik (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee-->
 <!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->
