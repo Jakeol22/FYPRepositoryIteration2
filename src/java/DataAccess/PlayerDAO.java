@@ -6,11 +6,13 @@
 package DataAccess;
 
 import Java.DatabaseConnection;
+import Java.PaymentToManagerModel;
 import Java.PlayerModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -119,6 +121,124 @@ public class PlayerDAO {
           Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
       }
       return ManagerNameList; //Return the list
+    }
+    
+  public ArrayList<PaymentToManagerModel>GetPlayerTransactions(Long PlayerID){
+        
+      DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
+      Connection newconnection=database.getConnection(); //gets connection from db
+        
+        long PaymentToManagerID=0;
+        long PlayerIDD = 0;
+        long ManagerID = 0;
+        String PaymentToManagerStatus = null;
+        long PaymentToManagerAmount = 0;
+        LocalDate DateOfPaymentToManager = null;
+       
+        
+        ArrayList<PaymentToManagerModel>NewPlayerTransactions = new ArrayList<>(); //Create a new arraylist PlayerIDlist
+        
+              try{
+          PreparedStatement Smnt1;
+          
+          Smnt1=newconnection.prepareStatement("Select * from PaymentToManager where PlayerID=?");//Select columns from PaymentToManager where PlayerID is unknown
+          
+          Smnt1.setLong(1, PlayerID); //Set the value of PlayerID
+          
+          ResultSet Rst2 =Smnt1.executeQuery();
+          
+        
+          
+          while (Rst2.next()){
+            
+              PaymentToManagerID=(Rst2.getLong(1));
+              PlayerID=(Rst2.getLong(2));
+              ManagerID=(Rst2.getLong(3));
+              PaymentToManagerStatus=(Rst2.getString(4));
+              PaymentToManagerAmount=(Rst2.getLong(5));
+              DateOfPaymentToManager =Rst2.getDate(6).toLocalDate();
+              
+
+
+            
+            PaymentToManagerModel PlayerTransactions = new PaymentToManagerModel(PaymentToManagerID, PlayerID, ManagerID, PaymentToManagerStatus, PaymentToManagerAmount, DateOfPaymentToManager);
+            
+            
+            PlayerTransactions.setPlayerID(PlayerID);
+            PlayerTransactions.setManagerID(ManagerID);
+            PlayerTransactions.setPaymentToManagerStatus(PaymentToManagerStatus);
+            PlayerTransactions.setPaymentToManagerAmount(PaymentToManagerAmount);
+            PlayerTransactions.setDateOfPaymentToManager(DateOfPaymentToManager);
+            
+         NewPlayerTransactions.add(PlayerTransactions);
+          }
+      }catch (SQLException ex){
+          Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      return NewPlayerTransactions; //return the Arraylist
+    }
+  
+  public PlayerModel getPlayerById(long PlayerID) {
+
+      DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
+      Connection newconnection=database.getConnection(); //gets connection from db
+         
+      
+         long Playerid=0; 
+         long ManagerID=0;
+         String Fname = null;
+         String Lname = null;
+         String PlayerEmail = null;
+         String PlayerPassword = null;
+         String PlayerClub = null;
+         String PlayerTeam = null;
+         LocalDate PlayerDOB= null;
+         String PlayerPhoneNumber =null;
+         String PlayerAddress = null;
+         String CreditCardNumber = null;
+         
+         
+        PlayerModel tempUser = new PlayerModel(Playerid,ManagerID,Fname,Lname,PlayerEmail,PlayerPassword,PlayerClub,PlayerTeam,PlayerDOB,PlayerPhoneNumber,PlayerAddress,CreditCardNumber);
+
+        String query = String.format("SELECT * FROM Player WHERE PlayerID=%d",PlayerID);
+        try {
+            PreparedStatement stmt = newconnection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Playerid = (rs.getLong(1));
+                ManagerID = (rs.getLong(2));
+                Fname = (rs.getString(3));
+                Lname = (rs.getString(4));
+                PlayerEmail = (rs.getString(5));
+                PlayerPassword = (rs.getString(6));
+                PlayerClub = (rs.getString(7));
+                PlayerTeam = (rs.getString(8));
+                PlayerDOB = rs.getDate(9).toLocalDate();
+                PlayerPhoneNumber = (rs.getString(10));
+                PlayerAddress = (rs.getString(11));
+                CreditCardNumber = (rs.getString(12));
+
+                
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        tempUser.setPlayerID(Playerid);
+        tempUser.setManagerID(ManagerID);
+        tempUser.setPlayerFname(Fname);
+        tempUser.setPlayerLname(Lname);
+        tempUser.setPlayerEmail(PlayerEmail);
+        tempUser.setPlayerPassword(PlayerPassword);
+        tempUser.setPlayerClub(PlayerClub);
+        tempUser.setPlayerTeam(PlayerTeam);
+        tempUser.setPlayerDob(PlayerDOB);
+        tempUser.setPlayerPhoneNumber(PlayerPhoneNumber);
+        tempUser.setPlayerAddress(PlayerAddress);
+        tempUser.setPlayerCardNumber(CreditCardNumber);
+       
+        return tempUser;
+
     }
         
 }

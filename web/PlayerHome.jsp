@@ -16,7 +16,9 @@
         <!--This was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
    <%HttpSession sessionLogin = request.getSession();
     String email = (String) session.getAttribute("PlayerEmail");
+   
     %>
+
     </head>
     <body>
          <!--Color taken from ColorHexa-->
@@ -84,16 +86,46 @@
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 
                                 <!--//This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="http://localhost:8080/FYP-Iteration2.0/PlayerServlet?newaction=GetManagerIDs">Make your payment!</a></div> <!--Takes you through the PlayerServlet, using newaction-->
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="http://localhost:8080/FYP-Iteration3.0/PlayerServlet?newaction=GetManagerIDs">Make your payment!</a></div> <!--Takes you through the PlayerServlet, using newaction-->
+                            </div>
+                            
+                        </div>
+                                  
+                    </div>
+          
+          
+          <div class="d-flex justify-content-center align-items-center" " >
+                        <div class="card h-100" style=" background-color: #E6E6FA; border-color: black; border-width: 5px">
+                            
+                            <!--<a href="https://www.flaticon.com/free-icons/money-transfer" title="money transfer icons">Money transfer icons created by catkuro - Flaticon</a> -->
+                            <img class="card-img-top" src="Images/TransactionPlayer.png" style="width: 250px; height: 250px;" alt="????" ><img/>
+                           
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                   
+                                    <h5 class="fw-bolder"> View your transactions </h5>
+                                    <br>
+                                  
+                                   
+                                   
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                
+                                <!--//This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="http://localhost:8080/FYP-Iteration3.0/RetrievePersonalPlayerTransactions?newestaction=GetTransactions">View your transactions!</a></div> <!--Takes you through RetrievePersonalPlayerTransactions servlet-->
                             </div>
                         </div>
                     </div>
+
         
     </body>
 </html>
 
 <!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.-->
 <!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
+<!--Catkuro(2023)Money transfer icons. Available at: https://www.flaticon.com/free-icons/money-transfer-->
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
 <!--FlatIcons(2023)Football manager icons. Available at https://www.flaticon.com/free-icons/sports-and-competition-->

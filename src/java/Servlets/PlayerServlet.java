@@ -133,17 +133,18 @@ String newaction = request.getParameter("newaction"); //attribute from when the 
                 //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
 
         //setting variables that will hold what the user enters in the form
-        
-        long playerid = Long.parseLong(request.getParameter("playerid"));
+    
+    long playerid = Long.parseLong(request.getParameter("playerid"));
     long managerid = Long.parseLong(request.getParameter("managerid"));
     String Status = request.getParameter("Status");
     long AmountDue =Long.parseLong(request.getParameter("AmountDue"));
     LocalDate currentDate = LocalDate.now();
     
   //create a new object of PaymentToManagerModel class
-    PaymentToManagerModel newpmtmm = new PaymentToManagerModel(playerid, managerid, Status, AmountDue, currentDate);
+    PaymentToManagerModel newpmtmm = new PaymentToManagerModel(0, playerid, managerid, Status, AmountDue, currentDate);
     
     //Populate the object with the variables from above, which hold what the user entered
+    
     newpmtmm.setPlayerID(playerid);
     newpmtmm.setManagerID(managerid);
     newpmtmm.setPaymentToManagerStatus("Succesful");

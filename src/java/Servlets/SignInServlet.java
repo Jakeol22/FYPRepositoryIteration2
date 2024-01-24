@@ -97,7 +97,7 @@ public class SignInServlet extends HttpServlet {
       HttpSession session = request.getSession();
       
       PreparedStatement PPS;
-      PPS=newcon.prepareStatement("select PlayerEmail from player where PlayerEmail=? and PlayerPassword=?"); //selects player email column from player table where the email and password must match
+      PPS=newcon.prepareStatement("select * from player where PlayerEmail=? and PlayerPassword=?"); //selects player email column from player table where the email and password must match
       
 
       
@@ -110,7 +110,7 @@ public class SignInServlet extends HttpServlet {
       if(rst.next())
       { 
       
-                
+         session.setAttribute("PlayerID", rst.getLong("PlayerID"));       
          session.setAttribute("PlayerEmail", rst.getString("PlayerEmail"));
       
          RequestDispatcher rqd=request.getRequestDispatcher("PlayerHome.jsp");

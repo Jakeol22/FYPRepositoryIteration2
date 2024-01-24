@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.sql.Connection;
+import java.time.LocalDate;
 import java.util.logging.Logger;
 
 /**
@@ -42,6 +43,8 @@ public class PaymentToManagerDAO {
           Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
       }
 }
+    
+      
 }
 
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.

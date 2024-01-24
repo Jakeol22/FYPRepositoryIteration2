@@ -17,6 +17,7 @@ public class PlayerModel {
     
      //Local Date taken from website: Baeldung
     private long PlayerID;
+    private long ManagerID;
     private String PlayerFname;
     private String PlayerLname;
     private String PlayerEmail;
@@ -27,7 +28,7 @@ public class PlayerModel {
      private String PlayerPhoneNumber;
      private String PlayerAddress;
      private String PlayerCardNumber;
-     private long ManagerID;
+     
 
     /**
      * @return the PlayerID
@@ -41,6 +42,17 @@ public class PlayerModel {
      */
     public void setPlayerID(long PlayerID) {
         this.PlayerID = PlayerID;
+    }
+    
+        public long getManagerID() {
+        return ManagerID;
+    }
+
+    /**
+     * @param ManagerID the ManagerID to set
+     */
+    public void setManagerID(long ManagerID) {
+        this.ManagerID = ManagerID;
     }
 
     /**
@@ -186,19 +198,11 @@ public class PlayerModel {
     /**
      * @return the ManagerID
      */
-    public long getManagerID() {
-        return ManagerID;
-    }
 
-    /**
-     * @param ManagerID the ManagerID to set
-     */
-    public void setManagerID(long ManagerID) {
-        this.ManagerID = ManagerID;
-    }
 
-    public PlayerModel(long PlayerID, String PlayerFname, String PlayerLname, String PlayerEmail, String PlayerPassword, String PlayerClub, String PlayerTeam, LocalDate PlayerDob, String PlayerPhoneNumber, String PlayerAddress, String PlayerCardNumber, long ManagerID) {
+    public PlayerModel(long PlayerID, long ManagerID, String PlayerFname, String PlayerLname, String PlayerEmail, String PlayerPassword, String PlayerClub, String PlayerTeam, LocalDate PlayerDob, String PlayerPhoneNumber, String PlayerAddress, String PlayerCardNumber) {
         this.PlayerID = PlayerID;
+        this.ManagerID = ManagerID;
         this.PlayerFname = PlayerFname;
         this.PlayerLname = PlayerLname;
         this.PlayerEmail = PlayerEmail;
@@ -209,7 +213,6 @@ public class PlayerModel {
         this.PlayerPhoneNumber = PlayerPhoneNumber;
         this.PlayerAddress = PlayerAddress;
         this.PlayerCardNumber = PlayerCardNumber;
-        this.ManagerID = ManagerID;
     }
             
             
