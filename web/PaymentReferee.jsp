@@ -68,7 +68,7 @@
            
             <h3> The referee you have chosen is:
                       
-        
+        <!--Gets the referee name that the manager chose, coming from from my PaymentServlet process request-->
                     ${RefereeName}
    
                 
@@ -87,7 +87,7 @@
             <div class="card-body">
        
             <div class = "container">
-                             <form action="PaymentToRefereeServlet" method="post"id="contact-form" role="form" > <!--Calls on playerservlet-->
+                             <form action="PaymentToRefereeServlet" method="post"id="contact-form" role="form" > <!--Calls on PaymentToRefereeServlet-->
 
                               
 
@@ -106,7 +106,7 @@
       <!--Asked CHATGPT for help on making a for loop in a dropdown (2023)-->
       <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
                 <c:forEach var="Manager" items="${ManagerID}">
-        <option value="${Manager}">${Manager}</option> <!--Gets Manager ID from servlet-->
+        <option value="${Manager}">${Manager}</option> <!--Gets Manager ID from PaymentServlet process request-->
     </c:forEach>
             </select>
         </div>
@@ -114,13 +114,13 @@
                     
                     <div class="col-md-6">
         <div class="form-group">
-             <!--This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).-->
+             
             <label for="form_need">The chosen referees ID is: </label>
             <select id="form_need" name="refereeid" class="form-control" required="required" data-error="Please specify your need.">
       
                 <!--Asked CHATGPT for help on making a for loop in a dropdown (2023)-->
                 <c:forEach items="${Ref}" var="referee"> 
-        <option value="${referee}" >${referee}</option> <!--Recognises Referee ID from servlet-->
+        <option value="${referee}" >${referee}</option> <!--Recognises Referee ID from PaymentServlet process request-->
     </c:forEach>
             </select>
         </div>
@@ -172,8 +172,12 @@
 </html>
 
 
-
+<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.-->
+<!--BBbootstrap (2019) Bootstrap 4 Simple Contact Form. Available at https://bbbootstrap.com/snippets/simple-contact-form-74408136 -->
+<!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.-->
 <!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
 <!--Bootstrap (2023) Sign In example. Available at:  https://getbootstrap.com/docs/5.3/examples/sign-in/>
+<!--ChatGPT (2023) OpenAI. Help on dropdown loop. Available at: https://chat.openai.com/share/6762dd59-58fd-4ed9-b34a-e951df487afe  -->
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>
+<!--Jake O'Leary(2022), HowsYourHoover project from IS3312.Available on my one drive.-->

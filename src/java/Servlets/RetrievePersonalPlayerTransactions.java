@@ -48,7 +48,7 @@ String newestaction = request.getParameter("newestaction"); //attribute from whe
                  
       PlayerService plrsrvc = new PlayerService();
         String plr = null;
-        if (newestaction == null) {//if newaction is null, you get redirected to login page
+        if (newestaction == null) {//if newestaction is null, you get redirected to login page
             request.getRequestDispatcher("/SignIn.jsp").forward(request, response);
        
        
@@ -69,7 +69,7 @@ String newestaction = request.getParameter("newestaction"); //attribute from whe
             
             
        
-        ArrayList<PaymentToManagerModel>GetPlayerTransactions = plrsrvc.GetPlayerTransactions(PlayerID);
+        ArrayList<PaymentToManagerModel>GetPlayerTransactions = plrsrvc.GetPlayerTransactions(PlayerID);//New arraylist to display a players transactions, based off their ID which is stored in the session
         
             request.setAttribute("GetPlayerTransactions", GetPlayerTransactions); //Attribute for my jsp
             context.setAttribute("GetPlayerTransactions", GetPlayerTransactions);

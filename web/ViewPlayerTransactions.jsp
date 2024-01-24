@@ -63,7 +63,7 @@
           
           
           
-          <!--This html/css was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
+          <!--This html/table was adapted from BBBootstrap(2020)-->
         <div class="page-content page-container" id="page-content">
     <div class="padding">
         <div class="row container d-flex justify-content-center">
@@ -80,7 +80,7 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>Transaction NO.</th>
+                          <th>Transaction NO.</th><!--Column names-->
                           <th>Player ID</th>
                           <th>Manager ID</th>
                           <th>Payment Status</th>
@@ -89,8 +89,10 @@
                         </tr>
                       </thead>
                       <tbody>
-                          <c:forEach items="${GetPlayerTransactions}" var="PlayerTransactions"> <!--gets refdetails from servlet and sets referee as variable-->
-                        <tr>
+                          <c:forEach items="${GetPlayerTransactions}" var="PlayerTransactions"> <!--Calls on my arraylist from my RetrievePersonalPlayerTransactions servlet-->
+                        <!--Below code was adapted from my IS3312 Project, HowsYourHoover (BrowseHoovers.jsp)(2022)-->
+                              <!--Calls on the methods from my model and retrieves the logged in users transaction details, using their ID-->
+                              <tr>
                           <td>${PlayerTransactions.getPaymentToManagerID()}</td> 
                           <td>${PlayerTransactions.getPlayerID()}</td>
                           <td>${PlayerTransactions.getManagerID()}</td>
@@ -115,6 +117,7 @@
 </html>
 
 <!--Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.-->
+<!--BBbootstrap(2020.Bootstrap 4 Basic table with card. Available at: https://bbbootstrap.com/snippets/basic-table-card-45601427
 <!--Bootstrap (2023) Navbars example. Available at: https://getbootstrap.com/docs/5.3/examples/navbars/>
 <!--Color Hexa (2023) #e0e0e0 Hex Color. Available at: https://www.colorhexa.com/e0e0e0>
 <!--Futuer (2023) Referee Icon. Available at: https://www.flaticon.com/free-icons/referee" title="referee icons">Referee icons created by Futuer - Flaticon>

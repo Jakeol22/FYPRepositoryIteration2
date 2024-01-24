@@ -65,7 +65,7 @@
           
           
           
-          <!--This html/css was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
+          <!--The below html/css was adapted from my code from my IS3312 Project, HowsYourHoover (2022)-->
                               <div class="d-flex justify-content-center align-items-center" " >
                         <div class="card h-100" style=" background-color: #E6E6FA; border-color: black; border-width: 5px">
                             

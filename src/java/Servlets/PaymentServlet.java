@@ -47,6 +47,7 @@ public class PaymentServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
      //The process request code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
 
 String Ref = request.getParameter("Ref"); //attribute from when the user hits a button
@@ -66,7 +67,7 @@ String Ref = request.getParameter("Ref"); //attribute from when the user hits a 
        
        
         
-        }else if (Ref != null) {
+        }else if (Ref != null) { //If string isn't null, call on my different methods from my service/dao to get details
 
             ArrayList<Long>RefID = refsrvc.GetRefereeID(); //method is called from my referee service
 

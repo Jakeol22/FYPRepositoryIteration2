@@ -77,12 +77,15 @@ public class PaymentToRefereeServlet extends HttpServlet {
         
                     //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
         
+                    
+    //Create variables to hold parameters from PaymentRefereeJSP
    long ManagerID = Long.parseLong(request.getParameter("managerid"));
    long RefereeID = Long.parseLong(request.getParameter("refereeid"));
    String status = request.getParameter("status");
    long AmountDue = Long.parseLong(request.getParameter("AmountDue"));
    LocalDate newDate = LocalDate.now();
    
+   //Create new instance of PaymentToRefereeModel
    PaymentToRefereeModel ptrm = new PaymentToRefereeModel(ManagerID, RefereeID, status, AmountDue, newDate);
            
    ptrm.setManagerID(ManagerID);

@@ -158,7 +158,7 @@
 
                     <div class="col-md-12">
                         
-                        <!-- Asked chatgpt about this as newaction was null when selecting the button-->
+                        <!-- Asked chatgpt about this as newaction was null when selecting the button (2023)-->
                         <input type="hidden" name="newaction" value="MakePayment">
 
                         <input type="submit" class="btn btn-success btn-send  pt-2 btn-block

@@ -42,12 +42,12 @@ public class PlayerService {
         return plr2.GetManagerName(playerEmail); //gets the ManagerName of the person logged in 
     }
         
-        public  ArrayList<PaymentToManagerModel> GetPlayerTransactions(Long PlayerID){ //Calls on the GetManagerName method from my dao
+        public  ArrayList<PaymentToManagerModel> GetPlayerTransactions(Long PlayerID){ //Calls on the GetPlayerTransactions method from my dao
         
         
         PlayerDAO plr3 = new PlayerDAO(); //creates a new instance of PlayerDAO
-        return plr3.GetPlayerTransactions(PlayerID);
-        }//gets the ManagerName of the person logged in
+        return plr3.GetPlayerTransactions(PlayerID); //gets the Transaction details of the Player logged in 
+        }
 }
 
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas. 

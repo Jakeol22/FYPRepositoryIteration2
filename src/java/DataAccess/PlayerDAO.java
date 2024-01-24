@@ -123,11 +123,15 @@ public class PlayerDAO {
       return ManagerNameList; //Return the list
     }
     
+    
+    //Below is a method to retrieve a players transactions, using their PlayerID, based on who's logged in
   public ArrayList<PaymentToManagerModel>GetPlayerTransactions(Long PlayerID){
         
       DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
       Connection newconnection=database.getConnection(); //gets connection from db
         
+      
+      //set my variables to create a new instance of my PaymentToManagerModel
         long PaymentToManagerID=0;
         long PlayerIDD = 0;
         long ManagerID = 0;
@@ -136,12 +140,12 @@ public class PlayerDAO {
         LocalDate DateOfPaymentToManager = null;
        
         
-        ArrayList<PaymentToManagerModel>NewPlayerTransactions = new ArrayList<>(); //Create a new arraylist PlayerIDlist
+        ArrayList<PaymentToManagerModel>NewPlayerTransactions = new ArrayList<>(); //Create a new arraylist NewPlayerTransactions
         
               try{
           PreparedStatement Smnt1;
           
-          Smnt1=newconnection.prepareStatement("Select * from PaymentToManager where PlayerID=?");//Select columns from PaymentToManager where PlayerID is unknown
+          Smnt1=newconnection.prepareStatement("Select * from PaymentToManager where PlayerID=?");//Select everything from PaymentToManager table where PlayerID is unknown
           
           Smnt1.setLong(1, PlayerID); //Set the value of PlayerID
           
@@ -151,6 +155,7 @@ public class PlayerDAO {
           
           while (Rst2.next()){
             
+              //Code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
               PaymentToManagerID=(Rst2.getLong(1));
               PlayerID=(Rst2.getLong(2));
               ManagerID=(Rst2.getLong(3));
@@ -160,7 +165,7 @@ public class PlayerDAO {
               
 
 
-            
+            //Create new instance of PaymentToManagertModel
             PaymentToManagerModel PlayerTransactions = new PaymentToManagerModel(PaymentToManagerID, PlayerID, ManagerID, PaymentToManagerStatus, PaymentToManagerAmount, DateOfPaymentToManager);
             
             
@@ -178,6 +183,8 @@ public class PlayerDAO {
       return NewPlayerTransactions; //return the Arraylist
     }
   
+  
+  //Created below thinking it would do something else. will keep it for the future just in case
   public PlayerModel getPlayerById(long PlayerID) {
 
       DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class

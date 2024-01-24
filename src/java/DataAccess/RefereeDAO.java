@@ -93,6 +93,7 @@ public class RefereeDAO {
 
      }
      
+     //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023). -- similar to what was done in my PlayerDAO to get PlayerID
         public ArrayList<Long>GetRefereeID(){
         
       DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
@@ -100,7 +101,7 @@ public class RefereeDAO {
         
         long RefereeID=0;
         
-        ArrayList<Long>RefereeIDList = new ArrayList<>(); //Create a new arraylist PlayerIDlist
+        ArrayList<Long>RefereeIDList = new ArrayList<>(); //Create a new arraylist RefereeIDList
         
               try{
           PreparedStatement Smnt1;
@@ -124,6 +125,8 @@ public class RefereeDAO {
       return RefereeIDList; //return the Arraylist
     } 
 
+        
+        //Get Referee Name based off the referees ID
 public String GetRefereeName(long RefereeID){
     DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
       Connection newconnection=database.getConnection(); //gets connection from db
@@ -146,11 +149,10 @@ public String GetRefereeName(long RefereeID){
           
           if (Rst2.next()){
               
+              //Code for getting Referee Name taken from ChatGPT (2024)
               String FirstName = Rst2.getString("RefereeFname");
               String LastName = Rst2.getString("RefereeLname");
-   
-     
-     RefereeName  = FirstName + " " + LastName;
+              RefereeName  = FirstName + " " + LastName;
           }
       }catch (SQLException ex){
           Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);

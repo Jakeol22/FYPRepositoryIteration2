@@ -99,6 +99,7 @@ public class SignInServlet extends HttpServlet {
       PreparedStatement PPS;
       PPS=newcon.prepareStatement("select * from player where PlayerEmail=? and PlayerPassword=?"); //selects player email column from player table where the email and password must match
       
+      //Changed this statement 23/01/2024, so I could retrieve  the PlayerID and store it in the session
 
       
       PPS.setString(1, email);//value for PlayerEmail=?

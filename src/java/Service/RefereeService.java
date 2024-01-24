@@ -32,8 +32,8 @@ public  ArrayList<Long> GetRefereeID()  { //Calls on the GetRefereeID method fro
         public  String GetRefereeName(long RefereeID){ //Calls on the GetRefereeName method from my dao
         
         
-        RefereeDAO ref2 = new RefereeDAO(); //creates a new instance of PlayerDAO
-        return ref2.GetRefereeName(RefereeID); //gets the ManagerName of the person logged in 
+        RefereeDAO ref2 = new RefereeDAO(); //creates a new instance of RefereeDAO
+        return ref2.GetRefereeName(RefereeID); //gets the RefereeName based off of the referees ID
     }
 }
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project 
