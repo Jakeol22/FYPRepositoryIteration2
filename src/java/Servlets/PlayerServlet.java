@@ -130,9 +130,9 @@ String newaction = request.getParameter("newaction"); //attribute from when the 
         processRequest(request, response);
                 
         
-                //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
+    //This code has been adapted from Bill Emersons "Sample Product Viewer" sample project, (2023).
 
-        //setting variables that will hold what the user enters in the form
+    //setting variables that will hold what the user enters in the form
     
     long playerid = Long.parseLong(request.getParameter("playerid"));
     long managerid = Long.parseLong(request.getParameter("managerid"));

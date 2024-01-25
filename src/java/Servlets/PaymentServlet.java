@@ -76,7 +76,7 @@ String Ref = request.getParameter("Ref"); //attribute from when the user hits a 
             context.setAttribute("Ref", Ref);
             
             
-            //Code for getting Referee Name taken from ChatGPT (2024)
+            //Code for getting Referee ID taken from ChatGPT (2024)
             long RefereeID = Long.parseLong(Ref);
             String RefereeName = refsrvc.GetRefereeName(RefereeID);
             
@@ -152,4 +152,4 @@ String Ref = request.getParameter("Ref"); //attribute from when the user hits a 
 
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.
 //ChatGPT (2023) OpenAI.Help with session. Available at: https://chat.openai.com/share/e7c505f4-8d53-423a-ad7d-a75b9556730e 
-//ChatGPT (2024) OpenAI.Help Returning a name, using RefereeID. Available at: https://chat.openai.com/share/86b7a088-0c7d-45aa-8aa4-1f3aade281bd 
+//ChatGPT (2024) OpenAI.Help with retrieving the ID of a selected person, and retrieving a name, using the ID. Available at: https://chat.openai.com/share/ca93c624-1098-4d74-9f06-7aa8051d1340

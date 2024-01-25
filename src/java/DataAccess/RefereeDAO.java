@@ -127,11 +127,12 @@ public class RefereeDAO {
 
         
         //Get Referee Name based off the referees ID
+        //Code for getting Referee Name taken from ChatGPT (2024)
 public String GetRefereeName(long RefereeID){
     DatabaseConnection database = new DatabaseConnection(); //Calls on the database I have created in the DatabaseConnection class
       Connection newconnection=database.getConnection(); //gets connection from db
         
-      //Code for getting Referee Name taken from ChatGPT (2024)
+      
       String RefereeName="";
         
           try{
@@ -163,4 +164,4 @@ public String GetRefereeName(long RefereeID){
 }
 
 //Bill Emerson sample project from IS3312(2023): Sample Product Viewer5 - Sample project. Available on canvas.
-//ChatGPT (2024) OpenAI.Help Returning a name, using RefereeID. Available at: https://chat.openai.com/share/86b7a088-0c7d-45aa-8aa4-13aade2f81bd 
+//ChatGPT (2024) OpenAI.Help with retrieving the ID of a selected person, and retrieving a name, using the ID. Available at: https://chat.openai.com/share/ca93c624-1098-4d74-9f06-7aa8051d1340
